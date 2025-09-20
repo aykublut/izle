@@ -50,7 +50,7 @@ export const movies = [
     png: "/kPax.png",
     pngWidth: "544",
     pngHeight: "789",
-    song: "/kPax-song.mp3",
+    song: "/kpax-song.mp3",
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
