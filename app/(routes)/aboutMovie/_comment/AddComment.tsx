@@ -187,7 +187,7 @@ const AddComment = () => {
             }
             maxLength={14}
             placeholder="nickname..."
-            className=" h-5 py-1 px-5 font-light max-md:text-[10px] font-mono  mt-2"
+            className=" h-5 py-1 px-5 font-light max-sm:text-[7px] sm:text-[12px] font-mono  mt-2"
           />
         </div>
 
@@ -199,7 +199,7 @@ const AddComment = () => {
               setComment(e.target.value)
             }
             placeholder="your comment..."
-            className="h-[84%] w-full max-md:text-[10px] resize-none break-all"
+            className="h-[84%] w-full max-sm:text-[7px] sm:text-[12px] resize-none break-all"
           />
           <Input
             value={movieSuggestion}
@@ -208,7 +208,7 @@ const AddComment = () => {
             }
             maxLength={25}
             placeholder="eklenmesini istediğiniz film? Beğenmezsem eklemem!"
-            className=" h-5 py-1 px-5 max-md:text-[10px] font-light font-mono mt-2 "
+            className=" h-5 py-1 px-5 max-sm:text-[7px] sm:text-[12px] font-light font-mono mt-2 "
           />
         </div>
       </div>
