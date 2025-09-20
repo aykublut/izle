@@ -42,6 +42,13 @@ export const movies = [
         color: "black",
         admin: false,
       },
+      {
+        avatar: "/avatar/virgil.png",
+        name: "Ahmet",
+        comment: "Muhteşem",
+        color: "red",
+        admin: false,
+      },
     ],
   },
   {
@@ -63,6 +70,18 @@ export const movies = [
         admin: false,
       },
     ],
+  },
+  {
+    id: 4,
+    name: "İnek Şaban",
+    png: "/inekSaban.png",
+    pngWidth: "469",
+    pngHeight: "523",
+    song: "/",
+    owner: "Ahmet",
+    ownerPng: "/avatar/virgil.png",
+    byAdmin: false,
+    comments: [],
   },
 ];
 
