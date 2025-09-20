@@ -9,9 +9,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { createUser } from "@/app/server-actions";
 import useStore from "@/store/store";
 import { SonnerDemo } from "./SonnerDemo";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const AddComment = () => {
-  const { currentMovie } = useStore();
+  const { currentMovie, setDialogStation } = useStore();
   const movieName = currentMovie.name;
   const [isPending, startTransition] = useTransition();
   const [clickedAvatar, setClickedAvatar] = useState<boolean>(false);
@@ -23,7 +25,12 @@ const AddComment = () => {
   const [movieSuggestion, setMovieSuggestion] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
   const handleCreateComment = () => {
-    if (nickname && comment && selectedColor && selectedAvatar) {
+    if (
+      nickname.length > 1 &&
+      comment.length > 1 &&
+      selectedColor.length > 1 &&
+      selectedAvatar.length > 1
+    ) {
       try {
         startTransition(() => {
           createUser({
@@ -35,9 +42,28 @@ const AddComment = () => {
             movieSuggestion,
           });
         });
+        toast("Talebiniz başarıyla oluşturuldu!!!", {
+          description: "Admin tarafından onaylanmasını bekleyin.",
+          position: "top-center",
+          duration: 10000,
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        });
       } catch (error) {
         console.log("NOLUYOR AMK", error);
       }
+    } else {
+      toast("HATA!!! Lütfen eksiksiz doldurun, renk de seçmelisiniz", {
+        description: "tekrar deneyin",
+        position: "top-center",
+        duration: 10000,
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      });
     }
   };
   return (
@@ -188,7 +214,14 @@ const AddComment = () => {
       </div>
       <div className="flex justify-center items-center">
         <div className="cursor-pointer w-[90%]" onClick={handleCreateComment}>
-          <SonnerDemo />
+          <Button
+            onClick={() => {
+              setDialogStation(false);
+            }}
+            className="w-full cursor-pointer bg-white/70 "
+          >
+            Confirm Comment
+          </Button>
         </div>
       </div>
     </div>

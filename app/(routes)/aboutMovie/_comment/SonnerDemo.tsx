@@ -9,7 +9,6 @@ export function SonnerDemo() {
   const { setDialogStation } = useStore();
   return (
     <Button
-      className="w-full cursor-pointer bg-white/70 "
       variant="outline"
       onClick={() => {
         toast("Talebiniz başarıyla oluşturuldu!!!", {
