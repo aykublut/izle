@@ -77,7 +77,7 @@ export const movies = [
     png: "/inekSaban.png",
     pngWidth: "469",
     pngHeight: "523",
-    song: "/",
+    song: "/kemalSunal.mp3",
     owner: "Ahmet",
     ownerPng: "/avatar/virgil.png",
     byAdmin: false,
