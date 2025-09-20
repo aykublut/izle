@@ -50,8 +50,8 @@ const AddComment = () => {
           >
             <Avatar
               className={`w-25 h-25 md:w-40 md:h-40 sm:w-33 sm:h-33 border-6  ${
-                selectedColor === "black"
-                  ? "border-[#1C2526]"
+                selectedColor === "red"
+                  ? "border-[#4A1F2A]"
                   : selectedColor === "green"
                   ? "border-[#2A4D3E]"
                   : selectedColor === "blue"
