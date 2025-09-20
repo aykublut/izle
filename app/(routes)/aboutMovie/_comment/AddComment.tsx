@@ -43,13 +43,13 @@ const AddComment = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex gap-5 w-full h-50">
-        <div className="relative flex justify-center items-center flex-col w-[25%] pt-2   ">
+        <div className="relative flex justify-center items-center max-md:justify-end max-md:gap-5 max-md:pb-[2px] flex-col w-[25%] pt-2   ">
           <div
             onClick={() => setClickedAvatar(!clickedAvatar)}
             className="rounded-full relative flex justify-center items-center cursor-pointer"
           >
             <Avatar
-              className={`w-40 h-40 border-6  ${
+              className={`w-25 h-25 md:w-40 md:h-40 sm:w-33 sm:h-33 border-6  ${
                 selectedColor === "black"
                   ? "border-[#1C2526]"
                   : selectedColor === "green"
@@ -76,7 +76,7 @@ const AddComment = () => {
           <div
             className={
               clickedAvatar
-                ? "absolute -top-28 flex-col flex  items-center"
+                ? "absolute -top-28 max-md:left-0 max-md:-top-30 flex-col flex  items-center"
                 : "hidden"
             }
           >
@@ -136,19 +136,19 @@ const AddComment = () => {
                 ></div>
                 <div
                   onClick={() => setSelectedColor("red")}
-                  className="rounded-sm w-10 h-10 bg-[#4A1F2A] hover:shadow-sm shadow-white/70 cursor-pointer"
+                  className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#4A1F2A] hover:shadow-sm shadow-white/70 cursor-pointer"
                 ></div>
                 <div
                   onClick={() => setSelectedColor("green")}
-                  className="rounded-sm w-10 h-10 bg-[#2A4D3E] hover:shadow-sm shadow-white/70 cursor-pointer"
+                  className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#2A4D3E] hover:shadow-sm shadow-white/70 cursor-pointer"
                 ></div>
                 <div
                   onClick={() => setSelectedColor("blue")}
-                  className="rounded-sm w-10 h-10 bg-[#1E2A44] hover:shadow-sm shadow-white/70 cursor-pointer"
+                  className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#1E2A44] hover:shadow-sm shadow-white/70 cursor-pointer"
                 ></div>
                 <div
                   onClick={() => setSelectedColor("yellow")}
-                  className="rounded-sm w-10 h-10 bg-[#4E3A1D] hover:shadow-sm shadow-white/70 cursor-pointer"
+                  className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#4E3A1D] hover:shadow-sm shadow-white/70 cursor-pointer"
                 ></div>
               </div>
             </div>
@@ -161,7 +161,7 @@ const AddComment = () => {
             }
             maxLength={14}
             placeholder="nickname..."
-            className=" h-5 py-1 px-5 font-light font-mono mt-2"
+            className=" h-5 py-1 px-5 font-light max-md:text-[10px] font-mono  mt-2"
           />
         </div>
 
@@ -173,7 +173,7 @@ const AddComment = () => {
               setComment(e.target.value)
             }
             placeholder="your comment..."
-            className="h-[84%] w-full   resize-none break-all"
+            className="h-[84%] w-full max-md:text-[10px] resize-none break-all"
           />
           <Input
             value={movieSuggestion}
@@ -182,7 +182,7 @@ const AddComment = () => {
             }
             maxLength={25}
             placeholder="eklenmesini istediğiniz film? Beğenmezsem eklemem!"
-            className=" h-5 py-1 px-5 font-light font-mono mt-2"
+            className=" h-5 py-1 px-5 max-md:text-[10px] font-light font-mono mt-2 "
           />
         </div>
       </div>

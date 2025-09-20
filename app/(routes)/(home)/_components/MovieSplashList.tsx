@@ -5,7 +5,7 @@ import { PlusCircle } from "lucide-react";
 const MovieSplashList = ({ moviesCall }: { moviesCall: any }) => {
   console.log(moviesCall);
   return (
-    <div className="flex justify-center gap-7 flex-wrap">
+    <div className="flex justify-center xl:justify-start gap-7 flex-wrap">
       {moviesCall.map((movie: any) => (
         <MovieSplash movie={movie} key={movie.id} />
       ))}

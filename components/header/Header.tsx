@@ -8,7 +8,7 @@ const Header = () => {
       <div className="w-[30%] flex justify-center items-center">
         <h1 className="text-2xl  font-light">IZLE</h1>
       </div>
-      <div className="w-[35%] flex justify-end items-center">
+      <div className="w-[35%] flex justify-end items-center sm:pr-10 pr-0">
         <ModeToggle />
       </div>
     </div>

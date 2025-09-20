@@ -122,6 +122,6 @@
   }
 
   .myPadding {
-    @apply lg:px-[10rem] md:px-[6rem] sm:px-[4rem] px-[3rem] py-3
+    @apply xl:px-[10rem] lg:px-[3rem] md:px-[1rem] sm:px-[4rem] px-[3rem] py-3
   }
 }
