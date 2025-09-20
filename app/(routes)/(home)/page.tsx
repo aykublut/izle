@@ -1,7 +1,9 @@
 import MovieSplashList from "./_components/MovieSplashList";
-
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
 export default async function Home() {
-  const res = await fetch(`http://localhost:3000/api/movies`, {
+  const res = await fetch(`${baseUrl}/api/movies`, {
     cache: "no-store",
   });
   const moviesCall = await res.json();
