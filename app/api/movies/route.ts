@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 // Örnek film verisi
-const movies = [
+export const movies = [
   {
     id: 1,
     name: "The Best Offer",
