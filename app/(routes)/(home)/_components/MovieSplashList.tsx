@@ -9,7 +9,7 @@ const MovieSplashList = ({ moviesCall }: { moviesCall: any }) => {
       {moviesCall.map((movie: any) => (
         <MovieSplash movie={movie} key={movie.id} />
       ))}
-      <div className=" w-60 hover:scale-101  cursor-pointer    ">
+      {/* <div className=" w-60 hover:scale-101  cursor-pointer    ">
         <div className="flex justify-center items-center">
           <h2 className="text-2xl font-light p-5"></h2>
         </div>
@@ -17,7 +17,7 @@ const MovieSplashList = ({ moviesCall }: { moviesCall: any }) => {
           {" "}
           <PlusCircle className="w-13 h-13" />{" "}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

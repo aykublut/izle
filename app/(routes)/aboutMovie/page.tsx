@@ -51,7 +51,6 @@ const aboutMoviePage = () => {
                   comments?.map((com: any) => (
                     <div key={com.name} className="mt-2">
                       <Comment com={com} />
-
                       <Separator className="my-2" />
                     </div>
                   ))}
