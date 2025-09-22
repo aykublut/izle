@@ -93,20 +93,20 @@ const AddComment = () => {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             {clickedAvatar ? (
-              <LiaTimesCircleSolid className="absolute text-5xl" />
+              <LiaTimesCircleSolid className="absolute bottom-0 text-3xl" />
             ) : (
-              <CiCirclePlus className="absolute text-5xl" />
+              <CiCirclePlus className="absolute bottom-0 text-3xl" />
             )}
           </div>
 
           <div
             className={
               clickedAvatar
-                ? "absolute -top-28 max-md:left-0 max-md:-top-30 flex-col flex  items-center"
+                ? "absolute  -left-60 -top-25 sm:-top-38 sm:-right-115 xl:-top-11 -right-110 xl:right-47 flex-col flex  items-center"
                 : "hidden"
             }
           >
-            <div className="relative flex justify-center flex-wrap gap-2 p-2 w-70 border-2 bg-white/15 rounded-sm border-white/40">
+            <div className="relative flex justify-center flex-wrap gap-2 p-[1px] sm:p-2 w-80  sm:w-105 xl:w-54 border-2 bg-white/30 rounded-sm border-white/40">
               <div
                 onClick={() => {
                   setSelectedAvatar("/avatar/claire.png");
@@ -155,9 +155,57 @@ const AddComment = () => {
               >
                 <SelectAvatar src="/avatar/virgil.png" />
               </div>
-              <div className="absolute -top-16 flex justify-center flex-wrap gap-2 p-1 w-70 border-2 bg-white/15 rounded-sm border-white/40">
+              <div
+                onClick={() => {
+                  setSelectedAvatar("/avatar/theMan.png");
+                }}
+                className="rounded-full"
+              >
+                <SelectAvatar src="/avatar/theMan.png" />
+              </div>
+              <div
+                onClick={() => {
+                  setSelectedAvatar("/avatar/theWoman.png");
+                }}
+                className="rounded-full"
+              >
+                <SelectAvatar src="/avatar/theWoman.png" />
+              </div>
+              <div
+                onClick={() => {
+                  setSelectedAvatar("/avatar/prof.png");
+                }}
+                className="rounded-full"
+              >
+                <SelectAvatar src="/avatar/prof.png" />
+              </div>
+              <div
+                onClick={() => {
+                  setSelectedAvatar("/avatar/killer.png");
+                }}
+                className="rounded-full"
+              >
+                <SelectAvatar src="/avatar/killer.png" />
+              </div>
+              <div
+                onClick={() => {
+                  setSelectedAvatar("/avatar/contraWoman.png");
+                }}
+                className="rounded-full"
+              >
+                <SelectAvatar src="/avatar/contraWoman.png" />
+              </div>
+              <div
+                onClick={() => {
+                  setSelectedAvatar("/avatar/saban.png");
+                }}
+                className="rounded-full"
+              >
+                <SelectAvatar src="/avatar/saban.png" />
+              </div>
+              <div className="absolute -top-[2px] w-20 sm:w-40 xl:w-65 xl:-right-65 sm:-right-41 -right-22 flex justify-center flex-wrap gap-1 xl:gap-2 p-1 px-2 border-2 bg-black/30 rounded-sm border-white/40">
                 <div
-                  className="rounded-sm w-10 h-10 bg-[#1C2526] hover:shadow-sm shadow-white/70 cursor-pointer"
+                  className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#1C2526] hover:shadow-sm shadow-white/70 cursor-pointer"
                   onClick={() => setSelectedColor("black")}
                 ></div>
                 <div
