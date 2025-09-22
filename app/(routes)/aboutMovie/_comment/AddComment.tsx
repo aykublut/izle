@@ -8,13 +8,13 @@ import { CiCirclePlus } from "react-icons/ci";
 import { Textarea } from "@/components/ui/textarea";
 import { createUser } from "@/app/server-actions";
 import useStore from "@/store/store";
-import { SonnerDemo } from "./SonnerDemo";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
 const AddComment = () => {
-  const { currentMovie, setDialogStation } = useStore();
-  const movieName = currentMovie.name;
+  const stored = JSON.parse(localStorage.getItem("currentMovie") || "null");
+  const { setDialogStation } = useStore();
+  const movieName = stored.name;
   const [isPending, startTransition] = useTransition();
   const [clickedAvatar, setClickedAvatar] = useState<boolean>(false);
   const [selectedAvatar, setSelectedAvatar] = useState<string>(
@@ -102,7 +102,7 @@ const AddComment = () => {
           <div
             className={
               clickedAvatar
-                ? "absolute  -left-60 -top-25 sm:-top-38 sm:-right-115 xl:-top-11 -right-110 xl:right-47 flex-col flex  items-center"
+                ? "absolute  -left-42 -top-25 sm:-top-38 sm:-right-115 xl:-top-11 -right-110 xl:right-65 flex-col flex  items-center"
                 : "hidden"
             }
           >
@@ -203,7 +203,7 @@ const AddComment = () => {
               >
                 <SelectAvatar src="/avatar/saban.png" />
               </div>
-              <div className="absolute -top-[2px] w-20 sm:w-40 xl:w-65 xl:-right-65 sm:-right-41 -right-22 flex justify-center flex-wrap gap-1 xl:gap-2 p-1 px-2 border-2 bg-black/30 rounded-sm border-white/40">
+              <div className="absolute max-xl:-top-[50px]  -top-[2px] w-44 sm:w-60 xl:w-65 xl:-right-65  flex justify-center flex-wrap gap-1 xl:gap-2 p-1 px-2 border-2 bg-white/50 rounded-sm border-white/40">
                 <div
                   className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#1C2526] hover:shadow-sm shadow-white/70 cursor-pointer"
                   onClick={() => setSelectedColor("black")}

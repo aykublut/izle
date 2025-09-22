@@ -4,8 +4,11 @@ import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { toast } from "sonner";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
   const soSoon = () => {
     toast("Bu özellik gelecek güncellemeyle gelicek", {
       description: "kusura bakmayınız",
@@ -19,7 +22,29 @@ const Header = () => {
   };
   return (
     <div className="flex myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center">
-      <div className="w-[35%] flex justify-center items-center"> </div>
+      <div className="w-[35%] px-10 flex justify-start items-center">
+        {pathname === "/" ? (
+          <Link href={"/aboutPatch"}>
+            <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
+              Güncelleme?
+            </Button>
+          </Link>
+        ) : pathname === "/aboutPatch" ? (
+          <Link href={"/"}>
+            <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
+              Ana Sayfa
+            </Button>
+          </Link>
+        ) : pathname === "/aboutMovie" ? (
+          <Link href={"/"}>
+            <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
+              Geri Dön
+            </Button>
+          </Link>
+        ) : (
+          <div></div>
+        )}
+      </div>
       <div className="w-[30%] flex justify-center items-center">
         <h1 className="text-2xl  font-light">IZLE</h1>
       </div>
