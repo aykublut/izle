@@ -19,6 +19,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "izle",
   description: "kesinlikle izlenmesi gereken filmler",
+  openGraph: {
+    title: "izle",
+    description: "kesinlikle izlenmesi gereken filmler",
+    url: "https://izle.vercel.app", // kendi site URL
+    siteName: "izle",
+
+    images: [
+      {
+        url: "/images/thumbnail.png", // public/images/thumbnail.png
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
