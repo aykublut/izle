@@ -45,8 +45,9 @@ const Header = () => {
           <div></div>
         )}
       </div>
-      <div className="w-[30%] flex justify-center items-center">
+      <div className="relative w-[30%] flex justify-center items-center">
         <h1 className="text-2xl  font-light">IZLE</h1>
+        <h6 className="absolute text-[9px] top-8  font-light">beta</h6>
       </div>
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
         <div className="hidden md:flex gap-3">
