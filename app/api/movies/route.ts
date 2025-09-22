@@ -135,7 +135,7 @@ export const movies = [
   },
   {
     id: 8,
-    name: "The Man From Earth",
+    name: "Man From Earth",
     png: "/movies/theManFromEarth.png",
     pngWidth: "1920",
     pngHeight: "2560",
@@ -149,7 +149,7 @@ export const movies = [
   },
   {
     id: 9,
-    name: "The Next Three Days",
+    name: "Next Three Days",
     png: "/movies/theNextThreeDays.png",
     pngWidth: "1920",
     pngHeight: "2560",
