@@ -5,7 +5,7 @@ export default async function Home() {
   const moviesCall = movies;
 
   return (
-    <div className="w-full myPadding pt-15">
+    <div className="w-full myPadding pt-15 pb-10">
       <MovieSplashList moviesCall={moviesCall} />
     </div>
   );
