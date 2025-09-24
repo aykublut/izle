@@ -51,12 +51,12 @@ const Header = () => {
       </div>
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
         <div className="hidden md:flex gap-3">
-          <Button onClick={soSoon} className="cursor-pointer">
-            Register
-          </Button>
-          <Button onClick={soSoon} className="cursor-pointer">
-            Login
-          </Button>
+          <Link href="api/auth/signin">
+            <Button className="cursor-pointer">Register</Button>
+          </Link>
+          <Link href="api/auth/signup">
+            <Button className="cursor-pointer">Login</Button>
+          </Link>
         </div>
         <Menu onClick={soSoon} className="cursor-pointer block md:hidden" />
         <ModeToggle />

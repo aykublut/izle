@@ -187,7 +187,15 @@ export const movies = [
     byAdmin: false,
     description:
       "Saf ve iyi niyetli İnek Şaban, köydeki çeşitli olaylarla karşılaşır ve komik, eğlenceli maceralar yaşar. Film, Türk mizahının unutulmaz örneklerinden biridir ve izleyiciye keyifli anlar sunar.",
-    comments: [],
+    comments: [
+      {
+        avatar: "/avatar/prot.png",
+        name: "Allahın cezası",
+        comment: "Gülmekten karnım ağrıdı valla 😂😂😂",
+        color: "black",
+        admin: false,
+      },
+    ],
   },
 ];
 
