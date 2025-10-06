@@ -46,7 +46,14 @@ const MovieSplash = ({ movie }: { movie: any }) => {
               }
             >
               <AvatarImage src={movie.ownerPng} alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>
+                <Image
+                  width={20}
+                  height={20}
+                  alt="loading..."
+                  src="/loadingAvatar.gif"
+                />
+              </AvatarFallback>
             </Avatar>
             <h5 className="text-[10px]">{movie.owner}</h5>
           </div>
