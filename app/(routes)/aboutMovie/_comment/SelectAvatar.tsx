@@ -11,6 +11,7 @@ const SelectAvatar = ({ src }: { src: string }) => {
           <Image
             width={20}
             height={20}
+            className="w-full h-full"
             alt="loading..."
             src="/loadingAvatar.gif"
           />

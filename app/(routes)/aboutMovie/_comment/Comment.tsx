@@ -1,5 +1,6 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 import React from "react";
 
@@ -21,7 +22,16 @@ const Comment = ({ com }: { com: any }) => {
           }
         >
           <AvatarImage src={avatar} alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>
+            {" "}
+            <Image
+              width={20}
+              height={20}
+              className="w-full h-full "
+              alt="loading..."
+              src="/loadingAvatar.gif"
+            />
+          </AvatarFallback>
         </Avatar>
         <h4 className="font-light font-mono text-center mt-1 text-md">
           {name}
