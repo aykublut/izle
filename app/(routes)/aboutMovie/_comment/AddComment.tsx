@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 
 const AddComment = () => {
   const stored = JSON.parse(localStorage.getItem("currentMovie") || "null");
-  const { setDialogStation } = useStore();
+  const { setDialogStation, texts } = useStore();
   const movieName = stored.name;
   const [isPending, startTransition] = useTransition();
   const [clickedAvatar, setClickedAvatar] = useState<boolean>(false);
@@ -234,7 +234,7 @@ const AddComment = () => {
               setNickName(e.target.value)
             }
             maxLength={14}
-            placeholder="nickname..."
+            placeholder={texts.comment.nickName}
             className=" h-5 py-1 px-5 font-light max-sm:text-[7px] sm:text-[12px] font-mono  mt-2"
           />
         </div>
@@ -246,7 +246,7 @@ const AddComment = () => {
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
               setComment(e.target.value)
             }
-            placeholder="your comment..."
+            placeholder={texts.comment.yourComment}
             className="h-[84%] w-full max-sm:text-[7px] sm:text-[12px] resize-none break-all"
           />
           <Input
@@ -255,7 +255,7 @@ const AddComment = () => {
               setMovieSuggestion(e.target.value)
             }
             maxLength={25}
-            placeholder="eklenmesini istediğiniz film? Beğenmezsem eklemem!"
+            placeholder={texts.comment.movieSuggestion}
             className=" h-5 py-1 px-5 max-sm:text-[7px] sm:text-[12px] font-light font-mono mt-2 "
           />
         </div>
@@ -268,7 +268,7 @@ const AddComment = () => {
             }}
             className="w-full cursor-pointer bg-white/70 "
           >
-            Confirm Comment
+            {texts.comment.confirmComment}
           </Button>
         </div>
       </div>

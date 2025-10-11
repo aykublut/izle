@@ -13,8 +13,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Virgil, prestijli müzayedelerde çalışan yetenekli bir sanat eksperidir. Bir gün gizemli ve çekici bir koleksiyoncu ile tanışır; hem iş hem de duygusal açıdan hayatı beklenmedik bir şekilde değişir. Filmin gizemli atmosferi ve şaşırtıcı sonu izleyiciyi sürekli merakta bırakır.",
+    descriptionENG:
+      "Virgil is a talented art expert working at prestigious auctions. One day, he meets a mysterious and attractive collector; his life changes unexpectedly both professionally and emotionally. The film's mysterious atmosphere and surprising ending keep the audience constantly intrigued.",
     comments: [
       {
         avatar: "/avatar/claire.png",
@@ -36,8 +38,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Gulf Savaşı gazisi Jack, akıl hastanesinde yaşadığı gizemli deneyimler sonucunda zamanda yolculuk yapabildiğini fark eder. Film, geçmiş, gelecek ve gerçeklik arasındaki sınırları zorlayarak izleyiciyi sürükleyici ve gerilim dolu bir yolculuğa çıkarır.",
+    descriptionENG:
+      "Gulf War veteran Jack discovers he can travel through time following mysterious experiences in a mental hospital. The film pushes the boundaries between past, future, and reality, taking the audience on an engaging and thrilling journey.",
     comments: [
       {
         avatar: "/avatar/theJacketWoman.png",
@@ -65,8 +69,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Prot, kendisini K-PAX adlı uzak bir gezegenden geldiğini iddia eden gizemli bir adamdır. Psikiyatristi onun gerçekliğini sorguladıkça hem insan doğası hem de evrenin sırları üzerine derin düşüncelere sürüklenir. Film, felsefi ve bilim kurgu unsurlarını ustaca birleştirir.",
+    descriptionENG:
+      "Prot is a mysterious man claiming to be from a distant planet called K-PAX. As his psychiatrist questions his reality, it leads to deep reflections on human nature and the secrets of the universe. The film masterfully combines philosophical and sci-fi elements.",
     comments: [
       {
         avatar: "/avatar/dr-mark.png",
@@ -87,8 +93,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Dahi matematikçi John Nash, şizofreni ile mücadele ederken hem kişisel hem de profesyonel hayatında büyük zorluklar yaşar. Film, zekâ, aşk ve hastalık arasındaki dengeyi etkileyici bir şekilde gösterir ve izleyiciye unutulmaz bir deneyim sunar.",
+    descriptionENG:
+      "Genius mathematician John Nash struggles with schizophrenia while facing significant challenges in his personal and professional life. The film impressively shows the balance between intelligence, love, and illness, offering the audience an unforgettable experience.",
     comments: [],
   },
   {
@@ -101,8 +109,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Taksi şoförü Max, gecelik bir yolculukta profesyonel bir tetikçi olan Vincent ile karşılaşır. Max, suç ve ölümle dolu bir gece boyunca kendi sınırlarını zorlar ve hayatta kalmak için riskli kararlar almak zorunda kalır. Film, gerilim ve aksiyonu ustaca harmanlar.",
+    descriptionENG:
+      "Taxi driver Max encounters professional hitman Vincent during a night journey. Max must push his limits and make risky decisions to survive a night filled with crime and death. The film skillfully combines suspense and action.",
     comments: [],
   },
   {
@@ -115,8 +125,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Lou Bloom, suç ve kaza sahnelerini filmleyip haber kanallarına satmaya başlar. Hırslı ve ahlaksız yaklaşımı, gazetecilik ve etik kavramlarını sorgulayan karanlık bir hikâye oluşturur. İzleyiciye unutulmaz bir gerilim deneyimi sunar.",
+    descriptionENG:
+      "Lou Bloom starts filming crime and accident scenes and sells them to news channels. His ambitious and immoral approach creates a dark story questioning journalism and ethics, providing the audience with an unforgettable thriller experience.",
     comments: [],
   },
   {
@@ -129,8 +141,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "İki küçük kız çocuğu kaçırıldığında, aileler ve polis olayın peşine düşer. Bir baba, kızını bulmak için kendi adaletini uygulamaya karar verir. Film, gerilim, dram ve ahlaki ikilemleri ustaca işler.",
+    descriptionENG:
+      "When two young girls are kidnapped, families and police pursue the case. A father decides to take justice into his own hands to find his daughter. The film skillfully handles suspense, drama, and moral dilemmas.",
     comments: [],
   },
   {
@@ -143,8 +157,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Profesör John, binlerce yıldır yaşadığını iddia eder ve arkadaşlarına hayat hikayesini anlatır. Film, felsefi diyaloglar ve insanlık tarihi üzerine düşündürücü bir bakış sunar, izleyiciyi derin düşüncelere iter.",
+    descriptionENG:
+      "Professor John claims to have lived for thousands of years and shares his life story with his friends. The film provides thought-provoking insights through philosophical dialogues and human history, prompting the audience to reflect deeply.",
     comments: [],
   },
   {
@@ -157,8 +173,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "John Brennan, karısının suçsuz olduğunu kanıtlamaya çalışırken onu hapisten kaçırmak için karmaşık bir plan yapar. Film, aksiyon ve gerilimi sürükleyici bir şekilde birleştirir, izleyiciyi sürekli merakta bırakır.",
+    descriptionENG:
+      "John Brennan devises a complex plan to break his wife out of prison while trying to prove her innocence. The film combines action and suspense in a compelling way, keeping the audience constantly on edge.",
     comments: [],
   },
   {
@@ -171,8 +189,10 @@ export const movies = [
     owner: "Admin",
     ownerPng: "/avatar/engineer.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Başarılı işadamı Adrian, cinayetle suçlanır ve kendi masumiyetini kanıtlamak için zamanla yarışır. Film, zekice kurgulanmış bir hikaye ve şaşırtıcı dönemeçlerle izleyiciyi ekrana kilitler.",
+    descriptionENG:
+      "Successful businessman Adrian is accused of murder and races against time to prove his innocence. The film features a cleverly crafted story and surprising twists, keeping the audience glued to the screen.",
     comments: [],
   },
   {
@@ -185,8 +205,10 @@ export const movies = [
     owner: "Ahmet",
     ownerPng: "/avatar/virgil.png",
     byAdmin: false,
-    description:
+    descriptionTR:
       "Saf ve iyi niyetli İnek Şaban, köydeki çeşitli olaylarla karşılaşır ve komik, eğlenceli maceralar yaşar. Film, Türk mizahının unutulmaz örneklerinden biridir ve izleyiciye keyifli anlar sunar.",
+    descriptionENG:
+      "Innocent and good-natured İnek Şaban encounters various events in the village and experiences funny and entertaining adventures. The film is one of the unforgettable examples of Turkish humor, offering the audience enjoyable moments.",
     comments: [
       {
         avatar: "/avatar/prot.png",

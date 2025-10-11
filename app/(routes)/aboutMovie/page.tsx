@@ -7,7 +7,9 @@ import { Separator } from "@/components/ui/separator";
 import Comment from "./_comment/Comment";
 
 import EmptyComment from "./_comment/EmptyComment";
+import useStore from "@/store/store";
 const aboutMoviePage = () => {
+  const { texts } = useStore();
   const [currentMovie, setCurrentMovie] = useState<any>();
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("currentMovie") || "null");
@@ -20,8 +22,17 @@ const aboutMoviePage = () => {
     return <p></p>; // veya boş bir div
   }
 
-  const { id, name, png, pngWidth, pngHeight, song, comments, description } =
-    currentMovie;
+  const {
+    id,
+    name,
+    png,
+    pngWidth,
+    pngHeight,
+    song,
+    comments,
+    descriptionTR,
+    descriptionENG,
+  } = currentMovie;
   console.log(comments);
   return (
     <div
@@ -37,7 +48,9 @@ const aboutMoviePage = () => {
       />
       <div className="flex flex-col mt-5 md:mt-0">
         <h1 className="text-4xl font-light font-mono text-center">{name}</h1>
-        <p className=" px-10 py-5">{description}</p>
+        <p className=" px-10 py-5">
+          {texts.flag === "/lang/tr.png" ? descriptionTR : descriptionENG}
+        </p>
         <div className="sm:px-10 px-1">
           <ScrollArea className=" h-[13rem] lg:h-[24rem] w-full  rounded-md border shadow-sm dark:shadow-blue-100 shadow-black">
             <div className="p-4">

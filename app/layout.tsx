@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,8 +55,10 @@ export default function RootLayout({
         >
           <div className="min-h-screen">
             <Header />
+
             <div>{children}</div>
           </div>
+
           <Footer />
           <Toaster />
         </ThemeProvider>

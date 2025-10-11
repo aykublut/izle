@@ -1,6 +1,10 @@
 import { create } from "zustand";
-
+import { languageTR } from "./lang";
 interface Store {
+  // DİL BÖLÜMÜ
+  texts: any;
+  setTexts: (object: any) => void;
+  //----------
   movies: any;
   dialogStation: boolean;
   setDialogStation: (apiCall: boolean) => void;
@@ -10,6 +14,14 @@ interface Store {
 }
 
 const useStore = create<Store>()((set) => ({
+  // DİL BÖLÜMÜ
+  texts: languageTR,
+  setTexts: (object: any) => {
+    set(() => ({
+      texts: object,
+    }));
+  },
+  // ----------
   movies: [],
   dialogStation: false,
   setDialogStation: (apiCall: boolean) => {
