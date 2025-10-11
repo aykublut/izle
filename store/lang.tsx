@@ -22,7 +22,7 @@ export const languageTR = {
   comment: {
     yourComment: "yorumunuzu girin...",
     nickName: "Kullanıcı Adı...",
-    movieSuggestion: "Eklenmesini istediğiniz film? Beğenmezsem eklemem!",
+    movieSuggestion: "Film öneriniz var mı? Beğenirsem sayfaya eklerim!",
     confirmComment: "Yorum Ekle",
   },
   //
@@ -51,7 +51,7 @@ export const languageENG = {
   comment: {
     yourComment: "your comment...",
     nickName: "Nickname...",
-    movieSuggestion: "Your movie suggestion? I'll check ",
+    movieSuggestion: "Your movie suggestion? I'll add your movie if i like it ",
     confirmComment: "Confirm Comment",
   },
   //
