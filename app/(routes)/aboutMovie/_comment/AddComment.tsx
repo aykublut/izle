@@ -24,11 +24,10 @@ const AddComment = () => {
   const [comment, setComment] = useState<string>("");
   const [movieSuggestion, setMovieSuggestion] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
-  const handleCreateComment = () => {
+  const handleCreateComment = (autoBorderColor: boolean) => {
     if (
       nickname.length > 1 &&
       comment.length > 1 &&
-      selectedColor.length > 1 &&
       selectedAvatar.length > 1
     ) {
       try {
@@ -42,20 +41,33 @@ const AddComment = () => {
             movieSuggestion,
           });
         });
-        toast("Talebiniz başarıyla oluşturuldu!!!", {
-          description: "Admin tarafından onaylanmasını bekleyin.",
-          position: "top-center",
-          duration: 10000,
-          action: {
-            label: "Undo",
-            onClick: () => console.log("Undo"),
-          },
-        });
+        autoBorderColor === true
+          ? toast(
+              "Talebiniz başarıyla oluşturuldu! Renk seçmediğiniz için default olarak border black seçildi!",
+              {
+                description: "Admin tarafından onaylanmasını bekleyin.",
+                position: "top-center",
+                duration: 10000,
+                action: {
+                  label: "Undo",
+                  onClick: () => console.log("Undo"),
+                },
+              }
+            )
+          : toast("Talebiniz başarıyla oluşturuldu!!!", {
+              description: "Admin tarafından onaylanmasını bekleyin.",
+              position: "top-center",
+              duration: 10000,
+              action: {
+                label: "Undo",
+                onClick: () => console.log("Undo"),
+              },
+            });
       } catch (error) {
         console.log("NOLUYOR AMK", error);
       }
     } else {
-      toast("HATA!!! Lütfen eksiksiz doldurun, renk de seçmelisiniz", {
+      toast("HATA!!! Lütfen eksiksiz doldurun", {
         description: "tekrar deneyin",
         position: "top-center",
         duration: 10000,
@@ -270,18 +282,17 @@ const AddComment = () => {
               selectedColor.length > 1 &&
               selectedAvatar.length > 1
             ) {
-              handleCreateComment();
+              handleCreateComment(false);
               setDialogStation(false);
-            } else {
-              toast("HATA!!! Lütfen eksiksiz doldurun, renk de seçmelisiniz", {
-                description: "tekrar deneyin",
-                position: "top-center",
-                duration: 10000,
-                action: {
-                  label: "Undo",
-                  onClick: () => console.log("Undo"),
-                },
-              });
+            } else if (
+              nickname.length > 1 &&
+              comment.length > 1 &&
+              selectedColor.length === 0 &&
+              selectedAvatar.length > 1
+            ) {
+              setSelectedColor("black");
+              handleCreateComment(true);
+              setDialogStation(false);
             }
           }}
         >
