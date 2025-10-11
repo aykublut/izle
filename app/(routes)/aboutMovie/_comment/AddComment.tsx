@@ -90,7 +90,7 @@ const AddComment = () => {
               }`}
             >
               <AvatarImage src={selectedAvatar} alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback></AvatarFallback>
             </Avatar>
             {clickedAvatar ? (
               <LiaTimesCircleSolid className="absolute bottom-0 text-3xl" />
