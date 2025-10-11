@@ -261,13 +261,31 @@ const AddComment = () => {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <div className="cursor-pointer w-[90%]" onClick={handleCreateComment}>
-          <Button
-            onClick={() => {
+        <div
+          className="cursor-pointer w-[90%]"
+          onClick={() => {
+            if (
+              nickname.length > 1 &&
+              comment.length > 1 &&
+              selectedColor.length > 1 &&
+              selectedAvatar.length > 1
+            ) {
+              handleCreateComment();
               setDialogStation(false);
-            }}
-            className="w-full cursor-pointer bg-white/70 "
-          >
+            } else {
+              toast("HATA!!! Lütfen eksiksiz doldurun, renk de seçmelisiniz", {
+                description: "tekrar deneyin",
+                position: "top-center",
+                duration: 10000,
+                action: {
+                  label: "Undo",
+                  onClick: () => console.log("Undo"),
+                },
+              });
+            }
+          }}
+        >
+          <Button className="w-full cursor-pointer bg-white/70 ">
             {texts.comment.confirmComment}
           </Button>
         </div>
