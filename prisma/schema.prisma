@@ -23,4 +23,13 @@ model User {
   movieName      String
   movieSuggestion String
 }
+model Member {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  email          String
+  username       String
+  photo          String
+  firstName      String
+  lastName       String
+  hashedPassword String
+}
 

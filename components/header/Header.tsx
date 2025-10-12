@@ -31,7 +31,7 @@ const Header = () => {
     });
   };
   return (
-    <div className="hidden myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center  xl:flex">
+    <div className=" myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center flex">
       {memberBarVisible ? (
         <div
           onClick={() => {
@@ -40,18 +40,18 @@ const Header = () => {
           }}
           className={
             pathname === "/"
-              ? "left-17 top-18 fixed border border-white/70 shadow-sm shadow-white/70 rounded-full"
+              ? "left-17 xl:flex hidden top-18 fixed border border-white/70 shadow-sm shadow-white/70 rounded-full"
               : "hidden"
           }
         >
-          <ArrowDown className=" text-white/70 left-17 top-18 cursor-pointer" />
+          <ArrowDown className=" text-white/70 left-17 top-18 cursor-pointer hidden" />
         </div>
       ) : (
         <div
           onClick={() => setMemberBarVisible(!memberBarVisible)}
           className={
             pathname === "/"
-              ? "left-17 top-18 fixed border border-white/40 rounded-full"
+              ? "left-17 top-18 fixed xl:flex hidden border border-white/40 rounded-full"
               : "hidden"
           }
         >
@@ -83,7 +83,9 @@ const Header = () => {
         )}
       </div>
       <div className="relative w-[30%] flex justify-center items-center">
-        <h1 className="text-2xl  font-light">IZLE</h1>
+        <Link href="/">
+          <h1 className="text-2xl  font-light">IZLE</h1>
+        </Link>
         <h6 className="absolute text-[9px] top-8  font-light">beta</h6>
       </div>
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
@@ -93,7 +95,7 @@ const Header = () => {
               {texts.authButtons.register}
             </Button>
           </Link>
-          <Link href="api/auth/signin">
+          <Link href="/login">
             <Button
               variant={"outline"}
               className={
