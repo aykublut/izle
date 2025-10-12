@@ -26,6 +26,13 @@ export const movies = [
         color: "black",
         admin: false,
       },
+      {
+        avatar: "/avatar/killer.png",
+        name: "İskilip",
+        comment: "Hayatımda gördüğüm en iyi teklif !",
+        color: "black",
+        admin: false,
+      },
     ],
   },
   {
@@ -62,6 +69,13 @@ export const movies = [
         name: "Cecu",
         comment: "Güzel bir roman uyarlaması",
         color: "blue",
+        admin: false,
+      },
+      {
+        avatar: "/avatar/killer.png",
+        name: "İskilip",
+        comment: "Jacket döner 😂😂 afiyet olsun",
+        color: "yellow",
         admin: false,
       },
     ],
@@ -136,7 +150,16 @@ export const movies = [
       "Lou Bloom, suç ve kaza sahnelerini filmleyip haber kanallarına satmaya başlar. Hırslı ve ahlaksız yaklaşımı, gazetecilik ve etik kavramlarını sorgulayan karanlık bir hikâye oluşturur. İzleyiciye unutulmaz bir gerilim deneyimi sunar.",
     descriptionENG:
       "Lou Bloom starts filming crime and accident scenes and sells them to news channels. His ambitious and immoral approach creates a dark story questioning journalism and ethics, providing the audience with an unforgettable thriller experience.",
-    comments: [],
+    comments: [
+      {
+        avatar: "/avatar/killer.png",
+        name: "İskilip",
+        comment:
+          "Harika bir film daha, Çağlar Ertuğrul yine çok iyi bir performans serg…",
+        color: "black",
+        admin: false,
+      },
+    ],
   },
   {
     id: 7,
@@ -200,7 +223,15 @@ export const movies = [
       "Başarılı işadamı Adrian, cinayetle suçlanır ve kendi masumiyetini kanıtlamak için zamanla yarışır. Film, zekice kurgulanmış bir hikaye ve şaşırtıcı dönemeçlerle izleyiciyi ekrana kilitler.",
     descriptionENG:
       "Successful businessman Adrian is accused of murder and races against time to prove his innocence. The film features a cleverly crafted story and surprising twists, keeping the audience glued to the screen.",
-    comments: [],
+    comments: [
+      {
+        avatar: "/avatar/killer.png",
+        name: "İskilip",
+        comment: "Takım elbise giymekle adam olunsaydı ohhooo 😂",
+        color: "black",
+        admin: false,
+      },
+    ],
   },
   {
     id: 11,
@@ -240,7 +271,15 @@ export const movies = [
       "Hz. Yusuf’un hayat hikayesini konu alan bu film, çocukluğundan Mısır'da vezirliğe yükselişine kadar olan dönemi anlatır. İhanet, sabır ve ilahi adalet temalarıyla derin bir manevi yolculuk sunar.",
     descriptionENG:
       "This film tells the life story of Prophet Joseph, from his childhood to his rise as a vizier in Egypt. It presents a profound spiritual journey centered on betrayal, patience, and divine justice.",
-    comments: [],
+    comments: [
+      {
+        avatar: "/avatar/killer.png",
+        name: "İskilip",
+        comment: "Ramazan aylarımızın vazgeçilmezi ! 🤲🤲",
+        color: "black",
+        admin: false,
+      },
+    ],
   },
 ];
 
