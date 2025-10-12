@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
-import { Menu } from "lucide-react";
+import { ArrowDown, Menu } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,7 +11,13 @@ import Image from "next/image";
 import { languageENG, languageTR } from "@/store/lang";
 
 const Header = () => {
-  const { texts, setTexts } = useStore();
+  const {
+    texts,
+    setTexts,
+    setMemberBarVisible,
+    memberBarVisible,
+    setMemberBarSelectedUser,
+  } = useStore();
   const pathname = usePathname();
   const soSoon = () => {
     toast("Bu özellik gelecek güncellemeyle gelicek", {
@@ -25,7 +31,34 @@ const Header = () => {
     });
   };
   return (
-    <div className="flex myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center">
+    <div className="hidden myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center  xl:flex">
+      {memberBarVisible ? (
+        <div
+          onClick={() => {
+            setMemberBarVisible(!memberBarVisible);
+            setMemberBarSelectedUser("");
+          }}
+          className={
+            pathname === "/"
+              ? "left-17 top-18 fixed border border-white/70 shadow-sm shadow-white/70 rounded-full"
+              : "hidden"
+          }
+        >
+          <ArrowDown className=" text-white/70 left-17 top-18 cursor-pointer" />
+        </div>
+      ) : (
+        <div
+          onClick={() => setMemberBarVisible(!memberBarVisible)}
+          className={
+            pathname === "/"
+              ? "left-17 top-18 fixed border border-white/40 rounded-full"
+              : "hidden"
+          }
+        >
+          <ArrowDown className=" text-white/40 left-17 top-18 cursor-pointer" />
+        </div>
+      )}
+
       <div className="w-[35%] px-10 flex justify-start items-center">
         {pathname === "/" ? (
           <Link href={"/aboutPatch"}>

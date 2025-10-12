@@ -57,6 +57,13 @@ export const movies = [
         color: "red",
         admin: false,
       },
+      {
+        avatar: "/avatar/prot.png",
+        name: "Cecu",
+        comment: "Güzel bir roman uyarlaması",
+        color: "blue",
+        admin: false,
+      },
     ],
   },
   {
@@ -218,6 +225,22 @@ export const movies = [
         admin: false,
       },
     ],
+  },
+  {
+    id: 12,
+    name: "Prophet Joseph",
+    png: "/movies/prophetJoseph.png",
+    pngWidth: "258",
+    pngHeight: "387",
+    song: "/songs/prophetJoseph.mp3",
+    owner: "Cecu",
+    ownerPng: "/avatar/prot.png",
+    byAdmin: false,
+    descriptionTR:
+      "Hz. Yusuf’un hayat hikayesini konu alan bu film, çocukluğundan Mısır'da vezirliğe yükselişine kadar olan dönemi anlatır. İhanet, sabır ve ilahi adalet temalarıyla derin bir manevi yolculuk sunar.",
+    descriptionENG:
+      "This film tells the life story of Prophet Joseph, from his childhood to his rise as a vizier in Egypt. It presents a profound spiritual journey centered on betrayal, patience, and divine justice.",
+    comments: [],
   },
 ];
 
