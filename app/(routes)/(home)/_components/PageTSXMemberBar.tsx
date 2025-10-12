@@ -41,8 +41,39 @@ const PageTSXMemberBar = () => {
               Destekçi
             </h3>
             <Avatar
+              onClick={() => {
+                toast("Kullanıcının filmi yok!", {
+                  description: "Film eklememiş",
+                  position: "top-center",
+                  duration: 2000,
+                  action: {
+                    label: "Undo",
+                    onClick: () => console.log("Undo"),
+                  },
+                });
+              }}
+              className="w-14 h-14  rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
+            >
+              <AvatarImage
+                src="/avatar/killer.png"
+                width={25}
+                height={25}
+                className="w-full h-full"
+                alt="@shadcn"
+              />
+              <AvatarFallback>
+                <Image
+                  width={20}
+                  height={20}
+                  alt="loading..."
+                  src="/loadingAvatar.gif"
+                />
+              </AvatarFallback>
+            </Avatar>
+            <h5 className="text-[11px] mt-1">İskilip</h5>
+            <Avatar
               onClick={() => setMemberBarSelectedUser("Ahmet")}
-              className="w-14 h-14 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
+              className="w-14 h-14 mt-2 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
             >
               <AvatarImage
                 src="/avatar/virgil.png"
@@ -61,37 +92,6 @@ const PageTSXMemberBar = () => {
               </AvatarFallback>
             </Avatar>
             <h5 className="text-[11px] mt-1">Ahmet</h5>
-            <Avatar
-              onClick={() => {
-                toast("Kullanıcının filmi yok!", {
-                  description: "Film eklememiş",
-                  position: "top-center",
-                  duration: 2000,
-                  action: {
-                    label: "Undo",
-                    onClick: () => console.log("Undo"),
-                  },
-                });
-              }}
-              className="w-14 h-14 mt-2 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
-            >
-              <AvatarImage
-                src="/avatar/prot.png"
-                width={25}
-                height={25}
-                className="w-full h-full"
-                alt="@shadcn"
-              />
-              <AvatarFallback>
-                <Image
-                  width={20}
-                  height={20}
-                  alt="loading..."
-                  src="/loadingAvatar.gif"
-                />
-              </AvatarFallback>
-            </Avatar>
-            <h5 className="text-[11px] mt-1">Allahın cezası</h5>
           </div>
           <div className=" flex flex-col items-center ">
             <h3 className="text-blue-400 font-light text-md flex m-0 p-0 flex-col mb-2 border-b border-blue-400  shadow-blue-400  shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
