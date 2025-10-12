@@ -175,7 +175,23 @@ export const movies = [
       "İki küçük kız çocuğu kaçırıldığında, aileler ve polis olayın peşine düşer. Bir baba, kızını bulmak için kendi adaletini uygulamaya karar verir. Film, gerilim, dram ve ahlaki ikilemleri ustaca işler.",
     descriptionENG:
       "When two young girls are kidnapped, families and police pursue the case. A father decides to take justice into his own hands to find his daughter. The film skillfully handles suspense, drama, and moral dilemmas.",
-    comments: [],
+    comments: [
+      {
+        avatar: "/avatar/theMan.png",
+        name: "Kayhan",
+        comment:
+          "gerilim dozu oldukca yerinde ama tahmin edilebilir bir sona sahip film…",
+        color: "black",
+        admin: false,
+      },
+      {
+        avatar: "/avatar/killer.png",
+        name: "İskilip",
+        comment: "Suça sürüklenenler 😞",
+        color: "yellow",
+        admin: false,
+      },
+    ],
   },
   {
     id: 8,
@@ -280,6 +296,38 @@ export const movies = [
         admin: false,
       },
     ],
+  },
+  {
+    id: 13,
+    name: "Snowpiercer",
+    png: "/movies/snowpiercer.png",
+    pngWidth: "3543",
+    pngHeight: "5016",
+    song: "/songs/snowpiercer.mp3",
+    owner: "İskilip",
+    ownerPng: "/avatar/killer.png",
+    byAdmin: false,
+    descriptionTR:
+      "Küresel bir felaketin ardından hayatta kalan insanların sürekli hareket eden bir trende yaşam mücadelesini konu alan bu film, sınıf çatışmaları ve hayatta kalma mücadelesini işliyor.",
+    descriptionENG:
+      "Set in a post-apocalyptic world, this film follows the survivors living on a perpetually moving train. It explores themes of class conflict and the struggle for survival.",
+    comments: [],
+  },
+  {
+    id: 14,
+    name: "The Shawshank Redemption",
+    png: "/movies/theShawsankRedemption.png",
+    pngWidth: "936",
+    pngHeight: "1387",
+    song: "/songs/theShawsankRedemption.mp3",
+    owner: "Kayhan",
+    ownerPng: "/avatar/theMan.png",
+    byAdmin: false,
+    descriptionTR:
+      "Haksız yere ömür boyu hapse mahkum edilen bir adamın Shawshank Hapishanesi'nde yaşadığı dostluk, umut ve özgürlük mücadelesini konu alan bir başyapıt.",
+    descriptionENG:
+      "This masterpiece tells the story of a man wrongfully imprisoned for life, depicting his experiences in Shawshank Prison with themes of friendship, hope, and the pursuit of freedom.",
+    comments: [],
   },
 ];
 
