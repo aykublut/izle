@@ -90,12 +90,12 @@ const Header = () => {
       </div>
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
         <div className="hidden md:flex gap-3">
-          <Link href="/register">
+          <Link href="/">
             <Button variant={"outline"} className="cursor-pointer">
               {texts.authButtons.register}
             </Button>
           </Link>
-          <Link href="/login">
+          <Link href="/">
             <Button
               variant={"outline"}
               className={
