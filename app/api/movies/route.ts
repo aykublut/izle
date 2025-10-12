@@ -315,8 +315,8 @@ export const movies = [
   },
   {
     id: 14,
-    name: "The Shawshank Redemption",
-    png: "/movies/theShawsankRedemption.png",
+    name: "Shawshank Redemption",
+    png: "/movies/theShawshankRedemption.png",
     pngWidth: "936",
     pngHeight: "1387",
     song: "/songs/theShawsankRedemption.mp3",

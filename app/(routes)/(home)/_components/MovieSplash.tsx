@@ -22,7 +22,15 @@ const MovieSplash = ({ movie }: { movie: any }) => {
     <Link onClick={handleCurrentMovie} href="/aboutMovie">
       <div className=" w-30 max-sm:h-40 sm:w-40 md:w-60 hover:scale-101 hover:border-b-[0.2px] cursor-pointer  border-white rounded-sm">
         <div className="flex justify-center items-center">
-          <h2 className="text-sm md:text-2xl font-light p-1">{movie.name}</h2>
+          <h2
+            className={
+              movie.name.length > 18
+                ? "text-sm md:text-xl font-light p-[6px]"
+                : "text-sm md:text-2xl font-light p-1"
+            }
+          >
+            {movie.name}
+          </h2>
         </div>
         <div className="relative flex justify-center items-center w-30 max-sm:h-40 sm:w-40 md:w-60 md:h-88 h-59 rounded-md ">
           <PlayCircle className="absolute w-15 h-15 " />
