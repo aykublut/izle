@@ -44,7 +44,7 @@ const Header = () => {
               : "hidden"
           }
         >
-          <ArrowDown className=" text-white/70 left-17 top-18 cursor-pointer hidden" />
+          <ArrowDown className=" text-white/70 left-17 top-18 cursor-pointer " />
         </div>
       ) : (
         <div
