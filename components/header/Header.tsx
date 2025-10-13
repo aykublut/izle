@@ -9,8 +9,10 @@ import { usePathname } from "next/navigation";
 import useStore from "@/store/store";
 import Image from "next/image";
 import { languageENG, languageTR } from "@/store/lang";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data: session } = useSession();
   const {
     texts,
     setTexts,
@@ -89,25 +91,48 @@ const Header = () => {
         <h6 className="absolute text-[9px] top-8  font-light">beta</h6>
       </div>
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
-        <div className="hidden md:flex gap-3">
-          <Link href="/">
-            <Button variant={"outline"} className="cursor-pointer">
-              {texts.authButtons.register}
-            </Button>
-          </Link>
-          <Link href="/">
-            <Button
-              variant={"outline"}
-              className={
-                texts.authButtons.login === "Login"
-                  ? "px-6.5 cursor-pointer"
-                  : "cursor-pointer"
-              }
-            >
-              {texts.authButtons.login}
-            </Button>
-          </Link>
-        </div>
+        {session && (
+          <Button
+            onClick={() => {
+              signOut({ callbackUrl: "/" });
+              toast(`SİKTİR GİT ${session?.user?.firstName} 😂😂`, {
+                description: "kusura bakmayınız",
+                position: "top-center",
+                duration: 5000,
+                action: {
+                  label: "Undo",
+                  onClick: () => console.log("Undo"),
+                },
+              });
+            }} // çıkış yaptıktan sonra yönlendirme
+            variant="outline"
+            className="gap-3 hidden md:block"
+          >
+            Logout
+          </Button>
+        )}
+        {!session && (
+          <div className="gap-3 hidden md:flex">
+            <Link href="/register">
+              <Button variant={"outline"} className="cursor-pointer">
+                {texts.authButtons.register}
+              </Button>
+            </Link>
+            <Link href="/login">
+              <Button
+                variant={"outline"}
+                className={
+                  texts.authButtons.login === "Login"
+                    ? "px-6.5 cursor-pointer"
+                    : "cursor-pointer"
+                }
+              >
+                {texts.authButtons.login}
+              </Button>
+            </Link>
+          </div>
+        )}
+
         <Menu onClick={soSoon} className="cursor-pointer block md:hidden" />
         <ModeToggle />
         <div

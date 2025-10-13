@@ -18,7 +18,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z
@@ -31,6 +33,14 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const LoginPage = () => {
+  const { data: session } = useSession();
+  useEffect(() => {
+    if (session?.user) {
+      toast(`Merhaba ${session.user.firstName}!`, {
+        duration: 3000,
+      });
+    }
+  }, [session]);
   const router = useRouter();
   const [error, setError] = useState("");
 
@@ -94,9 +104,9 @@ const LoginPage = () => {
             />
             <div className="flex flex-row items-center justify-between">
               <Button
+                className="cursor-pointer hover:bg-white shadow-sm hover:shadow-white/10"
                 type="submit"
                 variant="outline"
-                className="cursor-pointer hover:bg-white shadow-sm hover:shadow-white/10"
               >
                 Login
               </Button>

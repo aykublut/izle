@@ -42,15 +42,7 @@ const PageTSXMemberBar = () => {
             </h3>
             <Avatar
               onClick={() => {
-                toast("Kullanıcının filmi yok!", {
-                  description: "Film eklememiş",
-                  position: "top-center",
-                  duration: 2000,
-                  action: {
-                    label: "Undo",
-                    onClick: () => console.log("Undo"),
-                  },
-                });
+                setMemberBarSelectedUser("İskilip");
               }}
               className="w-14 h-14  rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
             >

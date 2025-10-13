@@ -6,6 +6,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
+import ClientWrapper from "@/components/providers/ClientWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,21 +48,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-[#192332] bg-gray-400 `}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="min-h-screen">
-            <Header />
+        <ClientWrapper>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="min-h-screen">
+              <Header />
 
-            <div>{children}</div>
-          </div>
+              <div>{children}</div>
+            </div>
 
-          <Footer />
-          <Toaster />
-        </ThemeProvider>
+            <Footer />
+            <Toaster />
+          </ThemeProvider>
+        </ClientWrapper>
       </body>
     </html>
   );
