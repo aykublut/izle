@@ -14,6 +14,7 @@ import SelectAvatar from "@/app/(routes)/aboutMovie/_comment/SelectAvatar";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const Header = () => {
+  const [menuActive, setMenuActive] = useState(false);
   const { data: session } = useSession();
   const {
     texts,
@@ -86,7 +87,9 @@ const Header = () => {
               {texts.headerButtons.return}
             </Button>
           </Link>
-        ) : pathname === "/register" || pathname === "/login" ? (
+        ) : pathname === "/register" ||
+          pathname === "/login" ||
+          pathname === "/privacyNotice" ? (
           <Link href={"/"}>
             <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
               {texts.headerButtons.homePage}
@@ -104,7 +107,7 @@ const Header = () => {
         {session && (
           <div className="flex gap-3 justify-center items-center">
             <div className="cursor-pointer p-0 rounded-r-md rounded-l-full flex items-center gap-0 hover:shadow-sm shadow-white ">
-              <Avatar className="rounded-r-none rounded-l-full  border-2 border-gray-500 ">
+              <Avatar className="rounded-r-none rounded-l-full hidden md:block  border-2 border-gray-500 ">
                 <AvatarImage
                   src={session.user.photo ?? "/avatar/prot.png"}
                   alt="@shadcn"
@@ -141,7 +144,7 @@ const Header = () => {
                 });
               }} // çıkış yaptıktan sonra yönlendirme
               variant="outline"
-              className="gap-3 hidden md:block cursor-pointer"
+              className="gap-3 max-sm:mr-10 max-sm:h-7 max-sm:w-17 md:block cursor-pointer"
             >
               {texts.authButtons.logout}
             </Button>
@@ -168,8 +171,46 @@ const Header = () => {
             </Link>
           </div>
         )}
-
-        <Menu onClick={soSoon} className="cursor-pointer block md:hidden" />
+        <div className="relative block md:hidden">
+          <Menu
+            onClick={() => setMenuActive(!menuActive)}
+            className="cursor-pointer"
+          />
+          {!session && (
+            <div
+              className={
+                menuActive
+                  ? "absolute top-10 flex items-center flex-col gap-2 p-2 rounded-2xl bg-slate-800 z-50 -right-7"
+                  : "hidden"
+              }
+            >
+              <Link href="/privacyNotice">
+                <Button
+                  onClick={() => setMenuActive(!menuActive)}
+                  variant={"outline"}
+                  className="cursor-pointer"
+                >
+                  {texts.authButtons.register}
+                </Button>
+              </Link>
+              <Link href="/login">
+                <Button
+                  onClick={() => {
+                    setMenuActive(!menuActive);
+                  }}
+                  variant={"outline"}
+                  className={
+                    texts.authButtons.login === "Login"
+                      ? "px-6.5 cursor-pointer"
+                      : "cursor-pointer"
+                  }
+                >
+                  {texts.authButtons.login}
+                </Button>
+              </Link>
+            </div>
+          )}
+        </div>
         <ModeToggle />
         <div
           onClick={() => {
