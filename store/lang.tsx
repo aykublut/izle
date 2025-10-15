@@ -16,6 +16,7 @@ export const languageTR = {
   authButtons: {
     register: "Kayıt ol",
     login: "Giriş yap",
+    logout: "Çıkış yap",
   },
   //
   // comment
@@ -26,6 +27,20 @@ export const languageTR = {
     confirmComment: "Yorum Ekle",
   },
   //
+  auth: {
+    email: "Email",
+    emailPlaceholder: "mail@örnek.com",
+    username: "Kullanıcı Adı",
+    usernamePlaceholder: "Kullanıcı Adınız",
+    password: "Şifre",
+    passwordPlaceholder: "******",
+    firstname: "Ad",
+    firstnamePlaceholder: "Adınız",
+    lastname: "Soyad",
+    lastnamePlaceholder: "Soyadınız",
+    loginButton: "Giriş Yap",
+    registerButton: "Kayıt Ol",
+  },
 };
 export const languageENG = {
   //modeToggle
@@ -45,6 +60,7 @@ export const languageENG = {
   authButtons: {
     register: "Register",
     login: "Login",
+    logout: "Logout",
   },
   //
   // comment
@@ -55,4 +71,19 @@ export const languageENG = {
     confirmComment: "Confirm Comment",
   },
   //
+  //registerLogin
+  auth: {
+    email: "Email",
+    emailPlaceholder: "mail@example.com",
+    username: "Username",
+    usernamePlaceholder: "username",
+    password: "Password",
+    passwordPlaceholder: "******",
+    firstname: "First Name",
+    firstnamePlaceholder: "Name",
+    lastname: "Last Name",
+    lastnamePlaceholder: "Surname",
+    loginButton: "Login",
+    registerButton: "Register",
+  },
 };

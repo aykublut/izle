@@ -11,8 +11,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/theBestOffer-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Virgil, prestijli müzayedelerde çalışan yetenekli bir sanat eksperidir. Bir gün gizemli ve çekici bir koleksiyoncu ile tanışır; hem iş hem de duygusal açıdan hayatı beklenmedik bir şekilde değişir. Filmin gizemli atmosferi ve şaşırtıcı sonu izleyiciyi sürekli merakta bırakır.",
     descriptionENG:
@@ -43,8 +43,8 @@ export const movies = [
     pngHeight: "1600",
     song: "/songs/theJacket-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Gulf Savaşı gazisi Jack, akıl hastanesinde yaşadığı gizemli deneyimler sonucunda zamanda yolculuk yapabildiğini fark eder. Film, geçmiş, gelecek ve gerçeklik arasındaki sınırları zorlayarak izleyiciyi sürükleyici ve gerilim dolu bir yolculuğa çıkarır.",
     descriptionENG:
@@ -88,8 +88,8 @@ export const movies = [
     pngHeight: "789",
     song: "/songs/kpax-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Prot, kendisini K-PAX adlı uzak bir gezegenden geldiğini iddia eden gizemli bir adamdır. Psikiyatristi onun gerçekliğini sorguladıkça hem insan doğası hem de evrenin sırları üzerine derin düşüncelere sürüklenir. Film, felsefi ve bilim kurgu unsurlarını ustaca birleştirir.",
     descriptionENG:
@@ -112,8 +112,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/aBeautifulMind-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Dahi matematikçi John Nash, şizofreni ile mücadele ederken hem kişisel hem de profesyonel hayatında büyük zorluklar yaşar. Film, zekâ, aşk ve hastalık arasındaki dengeyi etkileyici bir şekilde gösterir ve izleyiciye unutulmaz bir deneyim sunar.",
     descriptionENG:
@@ -128,8 +128,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/collateral-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Taksi şoförü Max, gecelik bir yolculukta profesyonel bir tetikçi olan Vincent ile karşılaşır. Max, suç ve ölümle dolu bir gece boyunca kendi sınırlarını zorlar ve hayatta kalmak için riskli kararlar almak zorunda kalır. Film, gerilim ve aksiyonu ustaca harmanlar.",
     descriptionENG:
@@ -144,8 +144,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/nightcrawler-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Lou Bloom, suç ve kaza sahnelerini filmleyip haber kanallarına satmaya başlar. Hırslı ve ahlaksız yaklaşımı, gazetecilik ve etik kavramlarını sorgulayan karanlık bir hikâye oluşturur. İzleyiciye unutulmaz bir gerilim deneyimi sunar.",
     descriptionENG:
@@ -169,8 +169,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/prisoners-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "İki küçük kız çocuğu kaçırıldığında, aileler ve polis olayın peşine düşer. Bir baba, kızını bulmak için kendi adaletini uygulamaya karar verir. Film, gerilim, dram ve ahlaki ikilemleri ustaca işler.",
     descriptionENG:
@@ -201,8 +201,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/theManFromEarth-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Profesör John, binlerce yıldır yaşadığını iddia eder ve arkadaşlarına hayat hikayesini anlatır. Film, felsefi diyaloglar ve insanlık tarihi üzerine düşündürücü bir bakış sunar, izleyiciyi derin düşüncelere iter.",
     descriptionENG:
@@ -217,8 +217,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/songs/theNextThreeDays-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "John Brennan, karısının suçsuz olduğunu kanıtlamaya çalışırken onu hapisten kaçırmak için karmaşık bir plan yapar. Film, aksiyon ve gerilimi sürükleyici bir şekilde birleştirir, izleyiciyi sürekli merakta bırakır.",
     descriptionENG:
@@ -233,8 +233,8 @@ export const movies = [
     pngHeight: "2560",
     song: "/movies/contratiempo-song.mp3",
     owner: "Admin",
-    ownerPng: "/avatar/engineer.png",
-    byAdmin: false,
+    ownerPng: "/avatar/general.png",
+    byAdmin: true,
     descriptionTR:
       "Başarılı işadamı Adrian, cinayetle suçlanır ve kendi masumiyetini kanıtlamak için zamanla yarışır. Film, zekice kurgulanmış bir hikaye ve şaşırtıcı dönemeçlerle izleyiciyi ekrana kilitler.",
     descriptionENG:

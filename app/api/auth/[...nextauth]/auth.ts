@@ -41,6 +41,7 @@ export const authOptions = {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
+          photo: user.photo, // <--- ekle bunu
         };
       },
     }),
@@ -51,6 +52,7 @@ export const authOptions = {
         token.id = user.id;
         token.firstName = user.firstName;
         token.lastName = user.lastName;
+        token.photo = user.photo; // <--- burası eklendi
       }
       return token;
     },
@@ -59,6 +61,7 @@ export const authOptions = {
         session.user.id = token.id;
         session.user.firstName = token.firstName;
         session.user.lastName = token.lastName;
+        session.user.photo = token.photo; // <--- burası eklendi
         session.user.token = token;
       }
       return session;

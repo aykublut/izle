@@ -21,6 +21,7 @@ import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import useStore from "@/store/store";
 
 const loginSchema = z.object({
   email: z
@@ -33,6 +34,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const LoginPage = () => {
+  const { texts } = useStore();
   const { data: session } = useSession();
   useEffect(() => {
     if (session?.user) {
@@ -69,9 +71,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  p-4">
+    <div className="min-h-screen flex items-center justify-center   p-4">
       <div className="bg-slate-800 shadow-md shadow-white/40 rounded px-8 pt-6 pb-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          {texts.auth.loginButton}
+        </h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
         <Form {...form}>
@@ -81,9 +85,12 @@ const LoginPage = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className="mb-4">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{texts.auth.email}</FormLabel>
                   <FormControl>
-                    <Input placeholder="jsmith@example.com" {...field} />
+                    <Input
+                      placeholder={texts.auth.emailPlaceholder}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -94,9 +101,13 @@ const LoginPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem className="mb-6">
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{texts.auth.password}</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder="********" {...field} />
+                    <Input
+                      type="password"
+                      placeholder={texts.auth.passwordPlaceholder}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -108,14 +119,14 @@ const LoginPage = () => {
                 type="submit"
                 variant="outline"
               >
-                Login
+                {texts.auth.loginButton}
               </Button>
 
               <Link
                 className="font-bold text-sm text-blue-500 hover:text-blue-800 hover:border-b hover:border-blue-800"
                 href="/register"
               >
-                Register
+                {texts.auth.registerButton}
               </Link>
             </div>
           </form>

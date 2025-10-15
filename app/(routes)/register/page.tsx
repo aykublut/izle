@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Link from "next/link";
+import useStore from "@/store/store";
 
 const registerSchema = z.object({
   email: z
@@ -33,6 +34,7 @@ const registerSchema = z.object({
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 const RegisterPage = () => {
+  const { texts } = useStore();
   const router = useRouter();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -76,9 +78,11 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  p-4">
+    <div className="min-h-screen flex items-center justify-center pt-25  p-4">
       <div className="bg-slate-800 shadow-md shadow-white/40 rounded px-8 pt-6 pb-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          {texts.auth.registerButton}
+        </h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         {success && <p className="text-green-500 mb-4">{success}</p>}
 
@@ -89,9 +93,12 @@ const RegisterPage = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className="mb-4">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{texts.auth.email}</FormLabel>
                   <FormControl>
-                    <Input placeholder="jsmith@example.com" {...field} />
+                    <Input
+                      placeholder={texts.auth.emailPlaceholder}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -102,9 +109,12 @@ const RegisterPage = () => {
               name="username"
               render={({ field }) => (
                 <FormItem className="mb-4">
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>{texts.auth.username}</FormLabel>
                   <FormControl>
-                    <Input placeholder="username" {...field} />
+                    <Input
+                      placeholder={texts.auth.usernamePlaceholder}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -115,9 +125,13 @@ const RegisterPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem className="mb-6">
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{texts.auth.password}</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder="********" {...field} />
+                    <Input
+                      type="password"
+                      placeholder={texts.auth.passwordPlaceholder}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -129,9 +143,12 @@ const RegisterPage = () => {
                 name="firstName"
                 render={({ field }) => (
                   <FormItem className="mb-4">
-                    <FormLabel>First Name</FormLabel>
+                    <FormLabel>{texts.auth.firstname}</FormLabel>
                     <FormControl>
-                      <Input placeholder="John" {...field} />
+                      <Input
+                        placeholder={texts.auth.firstnamePlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -142,9 +159,12 @@ const RegisterPage = () => {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem className="mb-4">
-                    <FormLabel>Last Name</FormLabel>
+                    <FormLabel>{texts.auth.lastname}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Doe" {...field} />
+                      <Input
+                        placeholder={texts.auth.lastnamePlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -158,14 +178,14 @@ const RegisterPage = () => {
                 variant="outline"
                 className="cursor-pointer hover:bg-white shadow-sm hover:shadow-white/10"
               >
-                Register
+                {texts.auth.registerButton}
               </Button>
 
               <Link
                 className="font-bold text-sm text-blue-500 hover:text-blue-800 hover:border-b hover:border-blue-800"
                 href="/login"
               >
-                Login
+                {texts.auth.loginButton}
               </Link>
             </div>
           </form>

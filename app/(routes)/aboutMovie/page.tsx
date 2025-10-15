@@ -37,7 +37,7 @@ const aboutMoviePage = () => {
   return (
     <div
       id={id}
-      className="flex myPadding py-15 flex-col md:flex-row items-center   "
+      className="flex myPadding py-15 flex-col md:flex-row items-center pt-30   "
     >
       <Image
         width={pngWidth}

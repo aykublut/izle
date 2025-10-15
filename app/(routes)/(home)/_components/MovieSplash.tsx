@@ -46,24 +46,61 @@ const MovieSplash = ({ movie }: { movie: any }) => {
             onLoadingComplete={() => setLoaded(true)}
           />
           <div className="absolute top-35 sm:top-55 md:top-82 flex justify-center items-center flex-col gap-1">
-            <Avatar
-              className={
-                movie.owner
-                  ? ` w-8 h-8 md:w-13 md:h-13 border-2 rounded-lg shadow-sm shadow-white`
-                  : " w-8 h-8 md:w-13 md:h-13 border-2"
-              }
-            >
-              <AvatarImage src={movie.ownerPng} alt="@shadcn" />
-              <AvatarFallback>
-                <Image
-                  width={20}
-                  height={20}
-                  className="w-full h-full "
-                  alt="loading..."
-                  src="/loadingAvatar.gif"
-                />
-              </AvatarFallback>
-            </Avatar>
+            {movie.byAdmin ? (
+              <div className="relative flex justify-center items-center cursor-pointer">
+                <div className="flex absolute justify-center items-center">
+                  <Avatar className="w-8 h-8 md:w-12 md:h-12 z-10  rounded-sm ">
+                    <AvatarImage
+                      src="/avatar/general.png"
+                      width={25}
+                      height={25}
+                      className="w-full h-full"
+                      alt="@shadcn"
+                    />
+
+                    <AvatarFallback>
+                      <Image
+                        width={20}
+                        height={20}
+                        alt="loading..."
+                        src="/loadingAvatar.gif"
+                      />
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+                <Avatar className="w-8 h-8 md:w-13 md:h-13 rounded-md shadow-sm border-2 border-white shadow-white ">
+                  <AvatarImage
+                    src="/cerceveler/adminCerceve.png"
+                    width={25}
+                    height={25}
+                    className="w-full h-full"
+                    alt="@shadcn"
+                  />
+
+                  <AvatarFallback>
+                    <Image
+                      width={20}
+                      height={20}
+                      alt="loading..."
+                      src="/loadingAvatar.gif"
+                    />
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+            ) : (
+              <Avatar className=" w-8 h-8 md:w-13 md:h-13 border-2">
+                <AvatarImage src={movie.ownerPng} alt="@shadcn" />
+                <AvatarFallback>
+                  <Image
+                    width={20}
+                    height={20}
+                    className="w-full h-full "
+                    alt="loading..."
+                    src="/loadingAvatar.gif"
+                  />
+                </AvatarFallback>
+              </Avatar>
+            )}
             <h5 className="text-[10px]">{movie.owner}</h5>
           </div>
         </div>

@@ -14,26 +14,52 @@ const PageTSXMemberBar = () => {
             <h3 className="text-white font-light text-xl mb-2 border-b border-white shadow-white shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
               KURUCU
             </h3>
-            <Avatar
-              onClick={() => setMemberBarSelectedUser("Admin")}
-              className="w-17 h-17 rounded-md shadow-sm border-2 border-white shadow-white cursor-pointer"
-            >
-              <AvatarImage
-                src="/avatar/engineer.png"
-                width={25}
-                height={25}
-                className="w-full h-full"
-                alt="@shadcn"
-              />
-              <AvatarFallback>
-                <Image
-                  width={20}
-                  height={20}
-                  alt="loading..."
-                  src="/loadingAvatar.gif"
+            <div className="relative flex justify-center items-center cursor-pointer">
+              <div className="flex absolute justify-center items-center">
+                <Avatar
+                  onClick={() => setMemberBarSelectedUser("Admin")}
+                  className="w-17 h-17  z-10  rounded-sm "
+                >
+                  <AvatarImage
+                    src="/avatar/general.png"
+                    width={25}
+                    height={25}
+                    className="w-full h-full"
+                    alt="@shadcn"
+                  />
+
+                  <AvatarFallback>
+                    <Image
+                      width={20}
+                      height={20}
+                      alt="loading..."
+                      src="/loadingAvatar.gif"
+                    />
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+              <Avatar
+                onClick={() => setMemberBarSelectedUser("Admin")}
+                className="w-18 h-18  rounded-md shadow-sm border-2 border-white shadow-white "
+              >
+                <AvatarImage
+                  src="/cerceveler/adminCerceve.png"
+                  width={25}
+                  height={25}
+                  className="w-full h-full"
+                  alt="@shadcn"
                 />
-              </AvatarFallback>
-            </Avatar>
+
+                <AvatarFallback>
+                  <Image
+                    width={20}
+                    height={20}
+                    alt="loading..."
+                    src="/loadingAvatar.gif"
+                  />
+                </AvatarFallback>
+              </Avatar>
+            </div>
             <h5 className="text-[11px] mt-1">Admin</h5>
           </div>
           <div className=" flex flex-col items-center ">

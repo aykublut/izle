@@ -10,6 +10,7 @@ declare module "next-auth" {
       email?: string | null;
       name?: string | null;
       image?: string | null;
+      photo?: string | null; // 👈 ekledik
     };
   }
 }

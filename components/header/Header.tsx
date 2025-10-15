@@ -10,6 +10,8 @@ import useStore from "@/store/store";
 import Image from "next/image";
 import { languageENG, languageTR } from "@/store/lang";
 import { signOut, useSession } from "next-auth/react";
+import SelectAvatar from "@/app/(routes)/aboutMovie/_comment/SelectAvatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -32,8 +34,12 @@ const Header = () => {
       },
     });
   };
+  session && console.log(session.user.photo);
   return (
-    <div className=" myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center flex">
+    <div
+      suppressHydrationWarning
+      className="fixed top-0 w-full z-50 backdrop-blur-md left-0 myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center flex"
+    >
       {memberBarVisible ? (
         <div
           onClick={() => {
@@ -61,7 +67,7 @@ const Header = () => {
         </div>
       )}
 
-      <div className="w-[35%] px-10 flex justify-start items-center">
+      <div className="w-[35%] px-10 flex gap-5 justify-start items-center">
         {pathname === "/" ? (
           <Link href={"/aboutPatch"}>
             <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
@@ -80,9 +86,13 @@ const Header = () => {
               {texts.headerButtons.return}
             </Button>
           </Link>
-        ) : (
-          <div></div>
-        )}
+        ) : pathname === "/register" || pathname === "/login" ? (
+          <Link href={"/"}>
+            <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
+              {texts.headerButtons.homePage}
+            </Button>
+          </Link>
+        ) : null}
       </div>
       <div className="relative w-[30%] flex justify-center items-center">
         <Link href="/">
@@ -92,28 +102,54 @@ const Header = () => {
       </div>
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
         {session && (
-          <Button
-            onClick={() => {
-              signOut({ callbackUrl: "/" });
-              toast(`SİKTİR GİT ${session?.user?.firstName} 😂😂`, {
-                description: "kusura bakmayınız",
-                position: "top-center",
-                duration: 5000,
-                action: {
-                  label: "Undo",
-                  onClick: () => console.log("Undo"),
-                },
-              });
-            }} // çıkış yaptıktan sonra yönlendirme
-            variant="outline"
-            className="gap-3 hidden md:block"
-          >
-            Logout
-          </Button>
+          <div className="flex gap-3 justify-center items-center">
+            <div className="cursor-pointer p-0 rounded-r-md rounded-l-full flex items-center gap-0 hover:shadow-sm shadow-white ">
+              <Avatar className="rounded-r-none rounded-l-full  border-2 border-gray-500 ">
+                <AvatarImage
+                  src={session.user.photo ?? "/avatar/prot.png"}
+                  alt="@shadcn"
+                />
+                <AvatarFallback>
+                  <Image
+                    width={15}
+                    height={15}
+                    className="w-full  h-full"
+                    alt="loading..."
+                    src="/loadingAvatar.gif"
+                  />
+                </AvatarFallback>
+              </Avatar>
+              <Button
+                onClick={() => {}} // çıkış yaptıktan sonra yönlendirme
+                variant="outline"
+                className="rounded-none hidden md:block cursor-pointer"
+              >
+                Profil
+              </Button>
+            </div>
+            <Button
+              onClick={() => {
+                signOut({ callbackUrl: "/" });
+                toast(`SİKTİR GİT ${session?.user?.firstName} 😂😂`, {
+                  description: "kusura bakmayınız",
+                  position: "top-center",
+                  duration: 5000,
+                  action: {
+                    label: "Undo",
+                    onClick: () => console.log("Undo"),
+                  },
+                });
+              }} // çıkış yaptıktan sonra yönlendirme
+              variant="outline"
+              className="gap-3 hidden md:block cursor-pointer"
+            >
+              {texts.authButtons.logout}
+            </Button>
+          </div>
         )}
         {!session && (
           <div className="gap-3 hidden md:flex">
-            <Link href="/register">
+            <Link href="/privacyNotice">
               <Button variant={"outline"} className="cursor-pointer">
                 {texts.authButtons.register}
               </Button>
