@@ -12,6 +12,7 @@ const ClientWrapper = ({ children, session }: ClientWrapperProps) => {
   return (
     <SessionProvider session={session} refetchInterval={60}>
       {children}
+      {/* awdwadwa */}
     </SessionProvider>
   );
 };
