@@ -133,8 +133,8 @@ const Header = () => {
             <Button
               onClick={() => {
                 signOut({ callbackUrl: "/" });
-                toast(`SİKTİR GİT ${session?.user?.firstName} 😂😂`, {
-                  description: "kusura bakmayınız",
+                toast(`Çıkış yapıldı, ${session?.user?.firstName} 😂😂`, {
+                  description: "",
                   position: "top-center",
                   duration: 5000,
                   action: {
