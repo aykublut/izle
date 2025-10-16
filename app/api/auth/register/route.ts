@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         username,
         firstName,
         lastName,
-        photo: "",
+        photo: "/avatar/default.png",
         hashedPassword,
       },
     });

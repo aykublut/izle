@@ -7,6 +7,8 @@ import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 import ClientWrapper from "@/components/providers/ClientWrapper";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,14 +57,16 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="min-h-screen">
-              <Header />
+            <Suspense fallback={<Loading />}>
+              <div className="min-h-screen">
+                <Header />
 
-              <div>{children}</div>
-            </div>
+                <div>{children}</div>
+              </div>
 
-            <Footer />
-            <Toaster />
+              <Footer />
+              <Toaster />
+            </Suspense>
           </ThemeProvider>
         </ClientWrapper>
       </body>

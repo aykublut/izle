@@ -22,6 +22,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import useStore from "@/store/store";
+import { Spinner } from "@/components/ui/spinner";
 
 const loginSchema = z.object({
   email: z
