@@ -16,7 +16,7 @@ const AboutPatchPage = () => {
         className="hidden"
       />
       {/* Patch bilgileri */}
-      <div className="absolute left-65  p-5 rounded-lg z-50 top-50 flex flex-col gap-6">
+      <div className="absolute left-65 max-sm:left-2 max-sm:top-45 bg-transparent max-sm:bg-[#192332]/50  p-5 rounded-lg z-50 top-50 flex flex-col gap-6">
         <h1 className="text-4xl font-extrabold text-red-600 tracking-wide">
           Dikkatli Ol, Ajan
         </h1>
