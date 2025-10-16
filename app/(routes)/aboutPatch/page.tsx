@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 const AboutPatchPage = () => {
-  const [mounted, setMounted] = useState(false);
-
+  const { data: session } = useSession();
   return (
     <div className="min-h-screen relative flex flex-col xl:flex-row items-center xl:items-start pt-20 xl:px-30 lg:px-25 md:px-20 sm:px-15 px-10 gap-12  text-white">
       {/* HTML Audio */}
@@ -18,7 +18,7 @@ const AboutPatchPage = () => {
       {/* Patch bilgileri */}
       <div className="absolute left-65 max-sm:left-2 max-sm:top-45 bg-transparent max-sm:bg-[#192332]/50  p-5 rounded-lg z-50 top-50 flex flex-col gap-6">
         <h1 className="text-4xl font-extrabold text-red-600 tracking-wide">
-          Dikkatli Ol, Ajan
+          Dikkatli Ol, <span>{session ? session.user.firstName : "Ajan"}</span>
         </h1>
         <p className="text-lg text-gray-300 leading-relaxed">
           Gelecek güncelleme talimatları geldi. Her hareketin izlendiğini
