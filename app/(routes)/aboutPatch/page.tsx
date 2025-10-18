@@ -31,8 +31,9 @@ const AboutPatchPage = () => {
             eklenecek. Emirle uygulansın.
           </li>
           <li>
-            Yeni filmler eklenecek, <strong>kesinlikle izlenebilir</strong>{" "}
-            olacak. Hiçbir sapma yok.
+            Yeni filmler eklenecek,{" "}
+            <strong>kesinlikle vakit harcamaya değer</strong> olacak. Hiçbir
+            sapma yok.
           </li>
 
           <li>
