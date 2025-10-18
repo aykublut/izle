@@ -54,7 +54,7 @@ const PageTSXMemberBar = () => {
             {/* KURUCU */}
             <div className="flex flex-col items-center mb-3">
               <h3 className="text-white font-light text-xl mb-2 border-b border-white shadow-white shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
-                KURUCU
+                Yönetmen
               </h3>
               <div className="relative flex justify-center items-center cursor-pointer">
                 <div className="flex absolute justify-center items-center">
@@ -106,10 +106,10 @@ const PageTSXMemberBar = () => {
             {/* BÜYÜK DESTEKÇİ */}
             <div className="flex flex-col items-center mb-3">
               <h3 className="text-yellow-500 font-light text-lg mb-2 border-b border-yellow-500 shadow-yellow-500 shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
-                Büyük Destekçi
+                Başrol
               </h3>
               {members
-                .filter((m: any) => m.level === "Büyük Destekçi")
+                .filter((m: any) => m.level === "Başrol")
                 .map((member: any, key: any) => (
                   <div key={key} className="mb-2">
                     <Avatar
@@ -174,10 +174,10 @@ const PageTSXMemberBar = () => {
             {/* DİĞER KULLANICILAR */}
             <div className="flex flex-col items-center mb-3">
               <h3 className="text-white/75 font-light text-md flex m-0 p-0 flex-col mb-2 border-b border-white/80 shadow-white shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
-                Diğer Kullanıcılar
+                Seyirci
               </h3>
               {members
-                .filter((m: any) => m.level === "Diğer Kullanıcılar")
+                .filter((m: any) => m.level === "Seyirci")
                 .map((member: any, key: any) => (
                   <div key={key} className="mb-2">
                     <Avatar

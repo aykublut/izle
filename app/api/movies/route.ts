@@ -155,7 +155,7 @@ export const movies = [
         avatar: "/avatar/killer.png",
         name: "İskilip",
         comment:
-          "Harika bir film daha, Çağlar Ertuğrul yine çok iyi bir performans serg…",
+          "Harika bir film daha, Çağlar Ertuğrul yine çok iyi bir performans sergilemiş !",
         color: "black",
         admin: false,
       },
