@@ -81,7 +81,7 @@ const PageTSXMemberBar = () => {
                 </div>
                 <Avatar
                   onClick={() => setMemberBarSelectedUser("Admin")}
-                  className="w-18 h-18 rounded-md shadow-sm border-2 border-white shadow-white"
+                  className="w-18 h-18 rounded-md shadow-md border-2 border-white shadow-white"
                 >
                   <AvatarImage
                     src="/cerceveler/adminCerceve.png"
@@ -114,7 +114,7 @@ const PageTSXMemberBar = () => {
                   <div key={key} className="mb-2">
                     <Avatar
                       onClick={() => setMemberBarSelectedUser(member.username)}
-                      className="w-14 h-14 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
+                      className="w-14 h-14 rounded-md shadow-md border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
                     >
                       <AvatarImage
                         src={member.photo}
@@ -151,7 +151,7 @@ const PageTSXMemberBar = () => {
                   >
                     <Avatar
                       onClick={() => setMemberBarSelectedUser(member.username)}
-                      className="w-14 h-14 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
+                      className="w-14 h-14 rounded-md shadow-sm border-1 border-blue-400 shadow-blue-400 cursor-pointer"
                     >
                       <AvatarImage
                         src={member.photo}
@@ -185,7 +185,7 @@ const PageTSXMemberBar = () => {
                   <div key={key} className="mb-2">
                     <Avatar
                       onClick={() => setMemberBarSelectedUser(member.username)}
-                      className="w-14 h-14 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
+                      className="w-14 h-14 rounded-md  border-1 border-white/70  cursor-pointer"
                     >
                       <AvatarImage
                         src={member.photo}
