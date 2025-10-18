@@ -58,23 +58,24 @@ const PageTSXMemberBar = () => {
               <h3 className="text-white font-light text-xl mb-2 border-b border-white shadow-white shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
                 Yönetmen
               </h3>
-              {members
-                .filter((m: any) => m.level === "Admin")
-                .map((member: any, key: any) => (
-                  <div
-                    key={key}
-                    onClick={() => setMemberBarSelectedUser(member.username)}
-                    className="mb-2 "
-                  >
-                    <MemberAvatar
-                      photo={member.photo}
-                      frame={member.frame}
-                      className={"shadow-md shadow-white"}
-                      adminStatus={true}
-                    />
-                    <h5 className="text-[11px] mt-1">{member.username}</h5>
-                  </div>
-                ))}
+              {members &&
+                members
+                  .filter((m: any) => m.level === "Admin")
+                  .map((member: any, key: any) => (
+                    <div
+                      key={key}
+                      onClick={() => setMemberBarSelectedUser(member.username)}
+                      className="mb-2 "
+                    >
+                      <MemberAvatar
+                        photo={member.photo}
+                        frame={member.frame}
+                        className={"shadow-md shadow-white"}
+                        adminStatus={true}
+                      />
+                      <h5 className="text-[11px] mt-1">{member.username}</h5>
+                    </div>
+                  ))}
             </div>
 
             {/* BÜYÜK DESTEKÇİ */}
@@ -82,23 +83,24 @@ const PageTSXMemberBar = () => {
               <h3 className="text-yellow-500 font-light text-lg mb-2 border-b border-yellow-500 shadow-yellow-500 shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
                 Başrol
               </h3>
-              {members
-                .filter((m: any) => m.level === "Başrol")
-                .map((member: any, key: any) => (
-                  <div
-                    onClick={() => setMemberBarSelectedUser(member.username)}
-                    key={key}
-                    className="mb-2 "
-                  >
-                    <MemberAvatar
-                      photo={member.photo}
-                      frame={member.frame}
-                      className={"shadow-md shadow-yellow-500"}
-                      adminStatus={false}
-                    />
-                    <h5 className="text-[11px] mt-1">{member.username}</h5>
-                  </div>
-                ))}
+              {members &&
+                members
+                  .filter((m: any) => m.level === "Başrol")
+                  .map((member: any, key: any) => (
+                    <div
+                      onClick={() => setMemberBarSelectedUser(member.username)}
+                      key={key}
+                      className="mb-2 "
+                    >
+                      <MemberAvatar
+                        photo={member.photo}
+                        frame={member.frame}
+                        className={"shadow-md shadow-yellow-500"}
+                        adminStatus={false}
+                      />
+                      <h5 className="text-[11px] mt-1">{member.username}</h5>
+                    </div>
+                  ))}
             </div>
 
             {/* DESTEKÇİ */}
@@ -106,23 +108,24 @@ const PageTSXMemberBar = () => {
               <h3 className="text-blue-400 font-light text-md flex m-0 p-0 flex-col mb-2 border-b border-blue-400 shadow-blue-400 shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
                 Destekçi
               </h3>
-              {members
-                .filter((m: any) => m.level === "Destekçi")
-                .map((member: any, key: any) => (
-                  <div
-                    key={key}
-                    onClick={() => setMemberBarSelectedUser(member.username)}
-                    className="mb-2 justify-center flex flex-col items-center"
-                  >
-                    <MemberAvatar
-                      photo={member.photo}
-                      frame={member.frame}
-                      className={"shadow-sm shadow-blue-400"}
-                      adminStatus={false}
-                    />
-                    <h5 className="text-[11px] mt-1">{member.username}</h5>
-                  </div>
-                ))}
+              {members &&
+                members
+                  .filter((m: any) => m.level === "Destekçi")
+                  .map((member: any, key: any) => (
+                    <div
+                      key={key}
+                      onClick={() => setMemberBarSelectedUser(member.username)}
+                      className="mb-2 justify-center flex flex-col items-center"
+                    >
+                      <MemberAvatar
+                        photo={member.photo}
+                        frame={member.frame}
+                        className={"shadow-sm shadow-blue-400"}
+                        adminStatus={false}
+                      />
+                      <h5 className="text-[11px] mt-1">{member.username}</h5>
+                    </div>
+                  ))}
             </div>
 
             {/* DİĞER KULLANICILAR */}
@@ -130,22 +133,23 @@ const PageTSXMemberBar = () => {
               <h3 className="text-white/75 font-light text-md flex m-0 p-0 flex-col mb-2 border-b border-white/80 shadow-white shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
                 Seyirci
               </h3>
-              {members
-                .filter((m: any) => m.level === "Seyirci")
-                .map((member: any, key: any) => (
-                  <div
-                    key={key}
-                    onClick={() => setMemberBarSelectedUser(member.username)}
-                    className="mb-2"
-                  >
-                    <MemberAvatar
-                      photo={member.photo}
-                      frame={member.frame}
-                      adminStatus={false}
-                    />
-                    <h5 className="text-[11px] mt-1">{member.username}</h5>
-                  </div>
-                ))}
+              {members &&
+                members
+                  .filter((m: any) => m.level === "Seyirci")
+                  .map((member: any, key: any) => (
+                    <div
+                      key={key}
+                      onClick={() => setMemberBarSelectedUser(member.username)}
+                      className="mb-2"
+                    >
+                      <MemberAvatar
+                        photo={member.photo}
+                        frame={member.frame}
+                        adminStatus={false}
+                      />
+                      <h5 className="text-[11px] mt-1">{member.username}</h5>
+                    </div>
+                  ))}
             </div>
           </ScrollArea>
         </div>
