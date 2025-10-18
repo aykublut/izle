@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
-import { ArrowDown, Menu } from "lucide-react";
+import { ArrowDown, LogOut, Menu } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -151,9 +151,10 @@ const Header = () => {
                 localStorage.clear();
               }} // çıkış yaptıktan sonra yönlendirme
               variant="outline"
-              className="gap-3 max-sm:mr-10 max-sm:h-7 max-sm:w-17 md:block cursor-pointer"
+              className="gap-3 max-sm:mr-10 max-sm:h-7 max-sm:w-17 md:block  cursor-pointer"
             >
-              {texts.authButtons.logout}
+              <LogOut className="text-red-500" />
+              {/* {texts.authButtons.logout} */}
             </Button>
           </div>
         )}
