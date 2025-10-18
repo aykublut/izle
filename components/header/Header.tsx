@@ -116,7 +116,7 @@ const Header = () => {
             >
               <Avatar className="rounded-r-none rounded-l-full hidden md:block  border-2 border-gray-500 ">
                 <AvatarImage
-                  src={photo ?? "/avatar/default.png"}
+                  src={photo ?? session.user.photo ?? "/avatar/default.png"}
                   alt="@shadcn"
                 />
                 <AvatarFallback>
@@ -149,6 +149,7 @@ const Header = () => {
                     onClick: () => console.log("Undo"),
                   },
                 });
+                localStorage.clear();
               }} // çıkış yaptıktan sonra yönlendirme
               variant="outline"
               className="gap-3 max-sm:mr-10 max-sm:h-7 max-sm:w-17 md:block cursor-pointer"

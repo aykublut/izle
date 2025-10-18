@@ -148,7 +148,10 @@ export default function ProfilePage() {
         {/* LEFT: Preview */}
         <div className="flex flex-col items-center gap-4 lg:w-1/3 w-full">
           <div className="bg-white/6 p-4 rounded-2xl shadow-inner">
-            <MemberAvatar frame={frameS} photo={photoS} />
+            <MemberAvatar
+              frame={frameS === "" ? session?.user.frame : frameS}
+              photo={photoS === "" ? session?.user.photo : photoS}
+            />
           </div>
           <div className="text-center">
             <div className="text-sm text-blue-200 font-semibold">

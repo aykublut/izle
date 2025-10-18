@@ -68,7 +68,7 @@ export async function POST(request: Request) {
         hashedPassword,
         frame: "",
         allowComment,
-        level: "1",
+        level: "Diğer Kullanıcılar",
       },
     });
 
