@@ -1,21 +1,34 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
 import { ArrowDown, Menu } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import useStore from "@/store/store";
 import Image from "next/image";
 import { languageENG, languageTR } from "@/store/lang";
 import { signOut, useSession } from "next-auth/react";
 import SelectAvatar from "@/app/(routes)/aboutMovie/_comment/SelectAvatar";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-
+import { getSession } from "next-auth/react";
 const Header = () => {
+  const { data: session, update } = useSession();
+  const [photo, setPhoto] = useState(session?.user.photo);
+
+  useEffect(() => {
+    const savedPhoto = localStorage.getItem("profile_photo");
+    setPhoto(savedPhoto);
+  }, [session]);
   const [menuActive, setMenuActive] = useState(false);
-  const { data: session } = useSession();
+
+  const router = useRouter();
+  useEffect(() => {
+    if (session?.user?.frame === "") {
+      router.replace("/sessionProfile");
+    }
+  }, [session, router]);
   const {
     texts,
     setTexts,
@@ -24,17 +37,7 @@ const Header = () => {
     setMemberBarSelectedUser,
   } = useStore();
   const pathname = usePathname();
-  const soSoon = () => {
-    toast("Bu özellik gelecek güncellemeyle gelicek", {
-      description: "kusura bakmayınız",
-      position: "top-center",
-      duration: 5000,
-      action: {
-        label: "Undo",
-        onClick: () => console.log("Undo"),
-      },
-    });
-  };
+
   session && console.log(session.user.photo);
   return (
     <div
@@ -89,7 +92,8 @@ const Header = () => {
           </Link>
         ) : pathname === "/register" ||
           pathname === "/login" ||
-          pathname === "/privacyNotice" ? (
+          pathname === "/privacyNotice" ||
+          pathname === "/sessionProfile" ? (
           <Link href={"/"}>
             <Button size={"sm"} className="cursor-pointer" variant={"outline"}>
               {texts.headerButtons.homePage}
@@ -106,10 +110,13 @@ const Header = () => {
       <div className="w-[35%] flex justify-end items-center gap-3 sm:pr-10 pr-0">
         {session && (
           <div className="flex gap-3 justify-center items-center">
-            <div className="cursor-pointer p-0 rounded-r-md rounded-l-full flex items-center gap-0 hover:shadow-sm shadow-white ">
+            <div
+              onClick={() => router.push("/sessionProfile")}
+              className="cursor-pointer p-0 rounded-r-md rounded-l-full flex items-center gap-0 hover:shadow-sm shadow-white "
+            >
               <Avatar className="rounded-r-none rounded-l-full hidden md:block  border-2 border-gray-500 ">
                 <AvatarImage
-                  src={session.user.photo ?? "/avatar/prot.png"}
+                  src={photo ?? "/avatar/default.png"}
                   alt="@shadcn"
                 />
                 <AvatarFallback>
@@ -176,7 +183,7 @@ const Header = () => {
             onClick={() => setMenuActive(!menuActive)}
             className="cursor-pointer"
           />
-          {!session && (
+          {!session ? (
             <div
               className={
                 menuActive
@@ -208,6 +215,38 @@ const Header = () => {
                   {texts.authButtons.login}
                 </Button>
               </Link>
+            </div>
+          ) : (
+            <div
+              onClick={() => router.push("/sessionProfile")}
+              className={
+                menuActive
+                  ? "cursor-pointer absolute top-10 flex items-center  p-2 rounded-2xl bg-slate-800 z-50 -right-7 "
+                  : "hidden"
+              }
+            >
+              <Avatar className="rounded-r-none rounded-l-full    border-2 border-gray-500 ">
+                <AvatarImage
+                  src={photo ?? "/avatar/default.png"}
+                  alt="@shadcn"
+                />
+                <AvatarFallback>
+                  <Image
+                    width={15}
+                    height={15}
+                    className="w-full  h-full"
+                    alt="loading..."
+                    src="/loadingAvatar.gif"
+                  />
+                </AvatarFallback>
+              </Avatar>
+              <Button
+                onClick={() => {}} // çıkış yaptıktan sonra yönlendirme
+                variant="outline"
+                className="rounded-none   cursor-pointer"
+              >
+                Profil
+              </Button>
             </div>
           )}
         </div>

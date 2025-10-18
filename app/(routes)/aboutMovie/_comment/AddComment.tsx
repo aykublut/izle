@@ -2,7 +2,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { LiaTimesCircleSolid } from "react-icons/lia";
-import React, { useState, useTransition } from "react";
+import React, { useEffect, useState, useTransition } from "react";
 import SelectAvatar from "./SelectAvatar";
 import { CiCirclePlus } from "react-icons/ci";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,17 +10,24 @@ import { createUser } from "@/app/server-actions";
 import useStore from "@/store/store";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
+import MemberAvatar from "@/components/MemberAvatar";
 
 const AddComment = () => {
+  const { data: session, update } = useSession();
   const stored = JSON.parse(localStorage.getItem("currentMovie") || "null");
-  const { setDialogStation, texts } = useStore();
+  const { setDialogStation, texts, photoS, frameS, setPhotoAndFrame } =
+    useStore();
   const movieName = stored.name;
   const [isPending, startTransition] = useTransition();
   const [clickedAvatar, setClickedAvatar] = useState<boolean>(false);
   const [selectedAvatar, setSelectedAvatar] = useState<string>(
-    "/avatar/emptyAvatar.png"
+    session?.user.photo ?? "/avatar/emptyAvatar.png"
   );
-  const [nickname, setNickName] = useState<string>("");
+
+  const [nickname, setNickName] = useState<string>(
+    session?.user.username ?? ""
+  );
   const [comment, setComment] = useState<string>("");
   const [movieSuggestion, setMovieSuggestion] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>("");
@@ -78,37 +85,49 @@ const AddComment = () => {
       });
     }
   };
+  useEffect(() => {
+    // session authenticated veya data geldiğinde yükle
+    const savedPhoto = localStorage.getItem("profile_photo");
+    const savedFrame = localStorage.getItem("profile_frame");
+    setPhotoAndFrame(savedPhoto, savedFrame);
+  }, []);
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex gap-5 w-full h-50">
-        <div className="relative flex justify-center items-center max-md:justify-end max-md:gap-5 max-md:pb-[2px] flex-col w-[25%] pt-2   ">
+      <div className="flex gap-5  w-full h-50">
+        <div className="relative flex  justify-center items-center max-md:justify-end max-md:gap-5 max-md:pb-[2px] flex-col w-[25%] pt-2   ">
           <div
-            onClick={() => setClickedAvatar(!clickedAvatar)}
+            onClick={() => {
+              session ? null : setClickedAvatar(!clickedAvatar);
+            }}
             className="rounded-full relative flex justify-center items-center cursor-pointer"
           >
-            <Avatar
-              className={`w-25 h-25 md:w-40 md:h-40 sm:w-33 sm:h-33 border-6  ${
-                selectedColor === "red"
-                  ? "border-[#4A1F2A]"
-                  : selectedColor === "green"
-                  ? "border-[#2A4D3E]"
-                  : selectedColor === "blue"
-                  ? "border-[#1E2A44]"
-                  : selectedColor === "yellow"
-                  ? "border-[#4E3A1D]"
-                  : selectedColor === "black"
-                  ? "border-[#1C2526]"
-                  : "border-gray-500"
-              }`}
-            >
-              <AvatarImage src={selectedAvatar} alt="@shadcn" />
-              <AvatarFallback></AvatarFallback>
-            </Avatar>
-            {clickedAvatar ? (
-              <LiaTimesCircleSolid className="absolute bottom-0 text-3xl" />
+            {session ? (
+              <MemberAvatar photo={photoS} frame={frameS} />
             ) : (
-              <CiCirclePlus className="absolute bottom-0 text-3xl" />
+              <Avatar
+                className={`w-25 h-25 md:w-40 md:h-40 sm:w-33 sm:h-33 border-6  ${
+                  selectedColor === "red"
+                    ? "border-[#4A1F2A]"
+                    : selectedColor === "green"
+                    ? "border-[#2A4D3E]"
+                    : selectedColor === "blue"
+                    ? "border-[#1E2A44]"
+                    : selectedColor === "yellow"
+                    ? "border-[#4E3A1D]"
+                    : selectedColor === "black"
+                    ? "border-[#1C2526]"
+                    : "border-gray-500"
+                }`}
+              >
+                <AvatarImage src={selectedAvatar} alt="@shadcn" />
+                <AvatarFallback></AvatarFallback>
+              </Avatar>
             )}
+            {clickedAvatar && !session ? (
+              <LiaTimesCircleSolid className="absolute bottom-0 text-3xl" />
+            ) : !session ? (
+              <CiCirclePlus className="absolute bottom-0 text-3xl" />
+            ) : null}
           </div>
 
           <div
@@ -240,15 +259,23 @@ const AddComment = () => {
             </div>
           </div>
 
-          <Input
-            value={nickname}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setNickName(e.target.value)
-            }
-            maxLength={14}
-            placeholder={texts.comment.nickName}
-            className=" h-5 py-1 px-5 font-light max-sm:text-[7px] sm:text-[12px] font-mono  mt-2"
-          />
+          {session?.user ? (
+            <Input
+              value={session.user.username}
+              readOnly
+              className=" h-5 py-1 px-5 font-light max-sm:text-[7px] text-white sm:text-[12px] font-mono  mt-2"
+            />
+          ) : (
+            <Input
+              value={nickname}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setNickName(e.target.value)
+              }
+              maxLength={14}
+              placeholder={texts.comment.nickName}
+              className=" h-5 py-1 px-5 font-light max-sm:text-[7px] sm:text-[12px] font-mono  mt-2"
+            />
+          )}
         </div>
 
         <div className="p-3 pb-0 w-[75%] rounded-sm border-l-2">

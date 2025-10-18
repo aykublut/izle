@@ -16,7 +16,6 @@ export const authOptions = {
           throw new Error("Missing email or password");
         }
 
-        // kesin string olduğunu TypeScript'e bildiriyoruz (minimum müdahale)
         const email = credentials.email as string;
         const password = credentials.password as string;
 
@@ -26,7 +25,6 @@ export const authOptions = {
           throw new Error("No user found with this email.");
         }
 
-        // hashedPassword'in kesin string olduğunu belirt
         const isPasswordValid = await bcrypt.compare(
           password,
           user.hashedPassword as string
@@ -36,41 +34,57 @@ export const authOptions = {
           throw new Error("Incorrect password.");
         }
 
+        // Genişletilmiş kullanıcı bilgilerini dön
         return {
           id: user.id,
           email: user.email,
+          username: user.username,
           firstName: user.firstName,
           lastName: user.lastName,
-          photo: user.photo, // <--- ekle bunu
+          photo: user.photo,
+          frame: user.frame,
+          level: user.level,
+          allowComment: user.allowComment,
         };
       },
     }),
   ],
+
   callbacks: {
     async jwt({ token, user }: any) {
       if (user) {
         token.id = user.id;
+        token.username = user.username;
         token.firstName = user.firstName;
         token.lastName = user.lastName;
-        token.photo = user.photo; // <--- burası eklendi
+        token.photo = user.photo;
+        token.frame = user.frame;
+        token.level = user.level;
+        token.allowComment = user.allowComment;
       }
       return token;
     },
+
     async session({ session, token }: any) {
       if (session?.user) {
         session.user.id = token.id;
         session.user.firstName = token.firstName;
         session.user.lastName = token.lastName;
-        session.user.photo = token.photo; // <--- burası eklendi
+        session.user.photo = token.photo;
+        session.user.frame = token.frame;
+        session.user.level = token.level;
+        session.user.allowComment = token.allowComment;
         session.user.token = token;
+        session.user.username = token.username; // veya user.name
       }
       return session;
     },
   },
+
   pages: {
     signIn: "/login",
   },
-  // literal tip hatasını önlemek için as const ekledim (yapıyı bozmaz)
+
   session: { strategy: "jwt" as const },
   secret: process.env.NEXTAUTH_SECRET,
 };

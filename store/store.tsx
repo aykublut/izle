@@ -1,6 +1,11 @@
 import { create } from "zustand";
 import { languageTR } from "./lang";
 interface Store {
+  //user bölümü
+  photoS: string;
+  frameS: string;
+  setPhotoAndFrame: (photo: any, frame: any) => void;
+  //
   //memberbar bölümü
   memberBarVisible: boolean;
   setMemberBarVisible: (bool: boolean) => void;
@@ -20,6 +25,16 @@ interface Store {
 }
 
 const useStore = create<Store>()((set) => ({
+  //
+  photoS: "",
+  frameS: "",
+  setPhotoAndFrame: (photo: any, frame: any) => {
+    set(() => ({
+      photoS: photo,
+      frameS: frame,
+    }));
+  },
+  //
   //memberbar bölümü
   memberBarVisible: false,
   setMemberBarVisible: (bool: boolean) => {

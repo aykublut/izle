@@ -5,8 +5,15 @@ import bcrypt from "bcrypt";
 export async function POST(request: Request) {
   try {
     // İstekten body al
-    const { email, username, password, firstName, lastName } =
-      await request.json();
+    const {
+      email,
+      username,
+      password,
+      firstName,
+      lastName,
+      frame,
+      allowComment,
+    } = await request.json();
 
     // Gerekli alanlar var mı kontrol et
     if (!email || !username || !password || !firstName || !lastName) {
@@ -59,6 +66,9 @@ export async function POST(request: Request) {
         lastName,
         photo: "/avatar/default.png",
         hashedPassword,
+        frame: "",
+        allowComment,
+        level: "1",
       },
     });
 

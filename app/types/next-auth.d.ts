@@ -4,6 +4,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       id: string;
+      username: string;
       firstName: string;
       lastName: string;
       token?: any;
@@ -11,6 +12,9 @@ declare module "next-auth" {
       name?: string | null;
       image?: string | null;
       photo?: string | null; // 👈 ekledik
+      frame?: string | null;
+      level?: string | null;
+      allowComment?: boolean | null;
     };
   }
 }

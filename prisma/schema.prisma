@@ -31,5 +31,8 @@ model Member {
   firstName      String
   lastName       String
   hashedPassword String
+  frame          String
+  level          String
+  allowComment   Boolean @default(false)
 }
 
