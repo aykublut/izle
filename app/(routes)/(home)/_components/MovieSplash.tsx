@@ -10,7 +10,7 @@ import React, { useEffect, useState } from "react";
 
 const MovieSplash = ({ movie }: { movie: any }) => {
   const { setCurrentMovie, currentMovie, members } = useStore();
-  console.log(movie);
+
   const handleCurrentMovie = () => {
     setCurrentMovie(movie);
   };

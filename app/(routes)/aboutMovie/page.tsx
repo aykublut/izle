@@ -17,7 +17,7 @@ const aboutMoviePage = () => {
       setCurrentMovie(stored);
     }
   }, []);
-  console.log(currentMovie);
+
   if (!currentMovie) {
     return <p></p>; // veya boş bir div
   }
@@ -33,7 +33,7 @@ const aboutMoviePage = () => {
     descriptionTR,
     descriptionENG,
   } = currentMovie;
-  console.log(comments);
+
   return (
     <div
       id={id}

@@ -38,7 +38,6 @@ const Header = () => {
   } = useStore();
   const pathname = usePathname();
 
-  session && console.log(session.user.photo);
   return (
     <div
       suppressHydrationWarning
