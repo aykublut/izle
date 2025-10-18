@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
-import { SessionProvider } from "next-auth/react";
+
 import ClientWrapper from "@/components/providers/ClientWrapper";
 import { Suspense } from "react";
 import Loading from "./loading";

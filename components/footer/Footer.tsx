@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const year = new Date().getFullYear();
   const pathname = usePathname();
+
   return (
     <footer
       className={
@@ -25,9 +26,47 @@ export default function Footer() {
               height={50}
               src="/images/thumbnail.png"
               className="rounded-md"
-            ></Image>
+            />
           </div>
           <span className="font-semibold text-sm sm:text-base">izle</span>
+        </div>
+
+        {/* Sitelerim */}
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-sm font-medium text-gray-300">Sitelerim</span>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://scenes-themes.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white text-gray-400 transition-colors"
+            >
+              <Image
+                alt="aykublut.dev"
+                width={24}
+                height={24}
+                src="/otherSites/scenesThemes.png"
+                className="rounded-sm"
+              />
+              <span className="text-sm">scenesThemes</span>
+            </a>
+
+            <a
+              href="https://aykublut.github.io/sound-player/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white text-gray-400 transition-colors"
+            >
+              <Image
+                alt="filmapp"
+                width={24}
+                height={24}
+                src="/otherSites/yerliSpotify.png"
+                className="rounded-sm"
+              />
+              <span className="text-sm">YerliSpotify</span>
+            </a>
+          </div>
         </div>
 
         {/* Social */}
