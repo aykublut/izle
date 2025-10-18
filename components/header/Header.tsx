@@ -19,7 +19,7 @@ const Header = () => {
 
   useEffect(() => {
     const savedPhoto = localStorage.getItem("profile_photo");
-    setPhoto(savedPhoto);
+    savedPhoto && setPhoto(savedPhoto);
   }, [session]);
   const [menuActive, setMenuActive] = useState(false);
 
