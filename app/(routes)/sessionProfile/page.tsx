@@ -162,6 +162,8 @@ export default function ProfilePage() {
                     ? "block text-[10px] text-orange-500"
                     : session?.user.level === "Destekçi"
                     ? "block text-[10px] text-blue-400"
+                    : session?.user.level === "Admin"
+                    ? "block text-[10px] text-white"
                     : "hidden"
                 }
               >
