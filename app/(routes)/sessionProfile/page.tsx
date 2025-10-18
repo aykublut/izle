@@ -156,6 +156,17 @@ export default function ProfilePage() {
           <div className="text-center">
             <div className="text-sm text-blue-200 font-semibold">
               {nickname}
+              <p
+                className={
+                  session?.user.level === "Başrol"
+                    ? "block text-[10px] text-orange-500"
+                    : session?.user.level === "Destekçi"
+                    ? "block text-[10px] text-blue-400"
+                    : "hidden"
+                }
+              >
+                {session?.user.level}
+              </p>
             </div>
             <div className="text-xs text-gray-400 mt-1">
               Make it yours — changes preview live
