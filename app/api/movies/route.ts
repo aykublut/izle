@@ -249,63 +249,15 @@ export const movies = [
       },
     ],
   },
+
   {
     id: 11,
-    name: "İnek Şaban",
-    png: "/movies/inekSaban.png",
-    pngWidth: "469",
-    pngHeight: "523",
-    song: "/songs/kemalSunal.mp3",
-    owner: "Ahmet",
-    ownerPng: "/avatar/virgil.png",
-    byAdmin: false,
-    descriptionTR:
-      "Saf ve iyi niyetli İnek Şaban, köydeki çeşitli olaylarla karşılaşır ve komik, eğlenceli maceralar yaşar. Film, Türk mizahının unutulmaz örneklerinden biridir ve izleyiciye keyifli anlar sunar.",
-    descriptionENG:
-      "Innocent and good-natured İnek Şaban encounters various events in the village and experiences funny and entertaining adventures. The film is one of the unforgettable examples of Turkish humor, offering the audience enjoyable moments.",
-    comments: [
-      {
-        avatar: "/avatar/prot.png",
-        name: "Allahın cezası",
-        comment: "Gülmekten karnım ağrıdı valla 😂😂😂",
-        color: "black",
-        admin: false,
-      },
-    ],
-  },
-  {
-    id: 12,
-    name: "Prophet Joseph",
-    png: "/movies/prophetJoseph.png",
-    pngWidth: "258",
-    pngHeight: "387",
-    song: "/songs/prophetJoseph.mp3",
-    owner: "Cecu",
-    ownerPng: "/avatar/prot.png",
-    byAdmin: false,
-    descriptionTR:
-      "Hz. Yusuf’un hayat hikayesini konu alan bu film, çocukluğundan Mısır'da vezirliğe yükselişine kadar olan dönemi anlatır. İhanet, sabır ve ilahi adalet temalarıyla derin bir manevi yolculuk sunar.",
-    descriptionENG:
-      "This film tells the life story of Prophet Joseph, from his childhood to his rise as a vizier in Egypt. It presents a profound spiritual journey centered on betrayal, patience, and divine justice.",
-    comments: [
-      {
-        avatar: "/avatar/killer.png",
-        name: "İskilip",
-        comment: "Ramazan aylarımızın vazgeçilmezi ! 🤲🤲",
-        color: "black",
-        admin: false,
-      },
-    ],
-  },
-  {
-    id: 13,
     name: "Snowpiercer",
     png: "/movies/snowpiercer.png",
     pngWidth: "3543",
     pngHeight: "5016",
     song: "/songs/snowpiercer.mp3",
     owner: "İskilip",
-    ownerPng: "/avatar/killer.png",
     byAdmin: false,
     descriptionTR:
       "Küresel bir felaketin ardından hayatta kalan insanların sürekli hareket eden bir trende yaşam mücadelesini konu alan bu film, sınıf çatışmaları ve hayatta kalma mücadelesini işliyor.",
@@ -314,19 +266,18 @@ export const movies = [
     comments: [],
   },
   {
-    id: 14,
-    name: "Shawshank Redemption",
-    png: "/movies/theShawshankRedemption.png",
-    pngWidth: "936",
-    pngHeight: "1387",
-    song: "/songs/theShawsankRedemption.mp3",
-    owner: "Kayhan",
-    ownerPng: "/avatar/theMan.png",
+    id: 12,
+    name: "Nobody",
+    png: "/movies/nobody.png",
+    pngWidth: "3000",
+    pngHeight: "4500",
+    song: "/songs/nobody.mp3",
+    owner: "İskilip",
     byAdmin: false,
     descriptionTR:
-      "Haksız yere ömür boyu hapse mahkum edilen bir adamın Shawshank Hapishanesi'nde yaşadığı dostluk, umut ve özgürlük mücadelesini konu alan bir başyapıt.",
+      "Sıradan bir aile babasının evine giren hırsızlara sessiz kalmasının ardından bastırılmış öfkesini dışa vurduğu bu aksiyon dolu film, sıradan görünen bir adamın geçmişindeki karanlık sırları ortaya çıkarıyor.",
     descriptionENG:
-      "This masterpiece tells the story of a man wrongfully imprisoned for life, depicting his experiences in Shawshank Prison with themes of friendship, hope, and the pursuit of freedom.",
+      "After a home invasion, a seemingly ordinary family man unleashes his long-suppressed rage in this action-packed film that reveals the dark secrets of his past.",
     comments: [],
   },
 ];

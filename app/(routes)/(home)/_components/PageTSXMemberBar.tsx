@@ -15,7 +15,8 @@ interface Member {
 }
 
 const PageTSXMemberBar = () => {
-  const [members, setMembers] = useState<any>([]);
+  const { members, setMembers } = useStore();
+
   const [loading, setLoading] = useState(true);
   const { memberBarVisible, setMemberBarSelectedUser } = useStore();
 
@@ -57,51 +58,23 @@ const PageTSXMemberBar = () => {
               <h3 className="text-white font-light text-xl mb-2 border-b border-white shadow-white shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
                 Yönetmen
               </h3>
-              <div className="relative flex justify-center items-center cursor-pointer">
-                <div className="flex absolute justify-center items-center">
-                  <Avatar
-                    onClick={() => setMemberBarSelectedUser("Admin")}
-                    className="w-17 h-17 z-10 rounded-sm"
+              {members
+                .filter((m: any) => m.level === "Admin")
+                .map((member: any, key: any) => (
+                  <div
+                    key={key}
+                    onClick={() => setMemberBarSelectedUser(member.username)}
+                    className="mb-2 "
                   >
-                    <AvatarImage
-                      src="/avatar/general.png"
-                      width={25}
-                      height={25}
-                      className="w-full h-full"
-                      alt="@shadcn"
+                    <MemberAvatar
+                      photo={member.photo}
+                      frame={member.frame}
+                      className={"shadow-md shadow-white"}
+                      adminStatus={true}
                     />
-                    <AvatarFallback>
-                      <Image
-                        width={20}
-                        height={20}
-                        alt="loading..."
-                        src="/loadingAvatar.gif"
-                      />
-                    </AvatarFallback>
-                  </Avatar>
-                </div>
-                <Avatar
-                  onClick={() => setMemberBarSelectedUser("Admin")}
-                  className="w-18 h-18 rounded-md shadow-md border-2 border-white shadow-white"
-                >
-                  <AvatarImage
-                    src="/cerceveler/adminCerceve.png"
-                    width={25}
-                    height={25}
-                    className="w-full h-full"
-                    alt="@shadcn"
-                  />
-                  <AvatarFallback>
-                    <Image
-                      width={20}
-                      height={20}
-                      alt="loading..."
-                      src="/loadingAvatar.gif"
-                    />
-                  </AvatarFallback>
-                </Avatar>
-              </div>
-              <h5 className="text-[11px] mt-1">Admin</h5>
+                    <h5 className="text-[11px] mt-1">{member.username}</h5>
+                  </div>
+                ))}
             </div>
 
             {/* BÜYÜK DESTEKÇİ */}
@@ -112,11 +85,16 @@ const PageTSXMemberBar = () => {
               {members
                 .filter((m: any) => m.level === "Başrol")
                 .map((member: any, key: any) => (
-                  <div key={key} className="mb-2 ">
+                  <div
+                    onClick={() => setMemberBarSelectedUser(member.username)}
+                    key={key}
+                    className="mb-2 "
+                  >
                     <MemberAvatar
                       photo={member.photo}
                       frame={member.frame}
                       className={"shadow-md shadow-yellow-500"}
+                      adminStatus={false}
                     />
                     <h5 className="text-[11px] mt-1">{member.username}</h5>
                   </div>
@@ -133,12 +111,14 @@ const PageTSXMemberBar = () => {
                 .map((member: any, key: any) => (
                   <div
                     key={key}
+                    onClick={() => setMemberBarSelectedUser(member.username)}
                     className="mb-2 justify-center flex flex-col items-center"
                   >
                     <MemberAvatar
                       photo={member.photo}
                       frame={member.frame}
                       className={"shadow-sm shadow-blue-400"}
+                      adminStatus={false}
                     />
                     <h5 className="text-[11px] mt-1">{member.username}</h5>
                   </div>
@@ -153,8 +133,16 @@ const PageTSXMemberBar = () => {
               {members
                 .filter((m: any) => m.level === "Seyirci")
                 .map((member: any, key: any) => (
-                  <div key={key} className="mb-2">
-                    <MemberAvatar photo={member.photo} frame={member.frame} />
+                  <div
+                    key={key}
+                    onClick={() => setMemberBarSelectedUser(member.username)}
+                    className="mb-2"
+                  >
+                    <MemberAvatar
+                      photo={member.photo}
+                      frame={member.frame}
+                      adminStatus={false}
+                    />
                     <h5 className="text-[11px] mt-1">{member.username}</h5>
                   </div>
                 ))}

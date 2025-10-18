@@ -1,6 +1,10 @@
 import { create } from "zustand";
 import { languageTR } from "./lang";
 interface Store {
+  //MEMBERSFOR
+  members: any;
+  setMembers: (payload: any) => void;
+  //
   //user bölümü
   photoS: string;
   frameS: string;
@@ -25,6 +29,14 @@ interface Store {
 }
 
 const useStore = create<Store>()((set) => ({
+  //MEMBERSFOR
+  members: "",
+  setMembers: (payload: any) => {
+    set(() => ({
+      members: payload,
+    }));
+  },
+  //
   //
   photoS: "",
   frameS: "",

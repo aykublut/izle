@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import MemberAvatar from "@/components/MemberAvatar";
+import { avatars } from "@/store/images";
 
 const AddComment = () => {
   const { data: session, update } = useSession();
@@ -138,102 +139,18 @@ const AddComment = () => {
             }
           >
             <div className="relative flex justify-center flex-wrap gap-2 p-[1px] sm:p-2 w-80  sm:w-105 xl:w-54 border-2 bg-white/30 rounded-sm border-white/40">
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/claire.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/claire.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/dr-mark.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/dr-mark.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/prot.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/prot.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/theJacketMan.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/theJacketMan.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/theJacketWoman.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/theJacketWoman.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/virgil.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/virgil.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/theMan.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/theMan.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/theWoman.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/theWoman.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/prof.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/prof.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/killer.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/killer.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/contraWoman.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/contraWoman.png" />
-              </div>
-              <div
-                onClick={() => {
-                  setSelectedAvatar("/avatar/saban.png");
-                }}
-                className="rounded-full"
-              >
-                <SelectAvatar src="/avatar/saban.png" />
-              </div>
+              {avatars.map((avatar, key) => (
+                <div
+                  onClick={() => {
+                    setSelectedAvatar(avatar);
+                  }}
+                  key={key}
+                  className="rounded-full"
+                >
+                  <SelectAvatar src={avatar} />
+                </div>
+              ))}
+
               <div className="absolute max-xl:-top-[50px]  -top-[2px] w-44 sm:w-60 xl:w-65 xl:-right-65  flex justify-center flex-wrap gap-1 xl:gap-2 p-1 px-2 border-2 bg-white/50 rounded-sm border-white/40">
                 <div
                   className="rounded-sm w-7 h-7 sm:w-10 sm:h-10 bg-[#1C2526] hover:shadow-sm shadow-white/70 cursor-pointer"
@@ -294,7 +211,12 @@ const AddComment = () => {
               setMovieSuggestion(e.target.value)
             }
             maxLength={25}
-            placeholder={texts.comment.movieSuggestion}
+            readOnly={!session}
+            placeholder={
+              !session
+                ? "Misafirler film öneremez!! Kayıt olun"
+                : texts.comment.movieSuggestion
+            }
             className=" h-5 py-1 px-5 max-sm:text-[7px] sm:text-[12px] font-light font-mono mt-2 "
           />
         </div>
