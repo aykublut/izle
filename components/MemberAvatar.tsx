@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const MemberAvatar = ({ photo, frame }: any) => {
+const MemberAvatar = ({ photo, frame, className }: any) => {
   const pathname = usePathname();
   return (
     <div className="relative flex justify-center items-center cursor-pointer">
@@ -13,6 +13,8 @@ const MemberAvatar = ({ photo, frame }: any) => {
           className={
             pathname === "/aboutMovie"
               ? "w-40 h-40  z-10 border border-white  rounded-full"
+              : pathname === "/"
+              ? "w-14 h-14 z-10 border border-white rounded-full"
               : "w-60 h-60  z-10 border border-white  rounded-full"
           }
         >
@@ -38,6 +40,8 @@ const MemberAvatar = ({ photo, frame }: any) => {
         className={
           pathname === "/aboutMovie"
             ? "w-43 h-43  border border-white  rounded-full"
+            : pathname === "/"
+            ? `w-16 h-16 border border-white rounded-full ${className}`
             : "w-64 h-64   border border-white  rounded-full"
         }
       >

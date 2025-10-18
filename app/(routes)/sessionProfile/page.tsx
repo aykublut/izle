@@ -143,7 +143,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0f101a] to-[#1a1a2b] p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0f101a] to-[#1a1a2b] px-4 py-25 lg:py-4">
       <div className="w-full max-w-[1000px] bg-white/5 rounded-2xl shadow-xl backdrop-blur-md text-white p-4 flex flex-col lg:flex-row gap-6">
         {/* LEFT: Preview */}
         <div className="flex flex-col items-center gap-4 lg:w-1/3 w-full">

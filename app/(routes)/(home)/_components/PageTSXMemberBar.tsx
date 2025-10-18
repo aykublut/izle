@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import useStore from "@/store/store";
 import { toast } from "sonner";
+import MemberAvatar from "@/components/MemberAvatar";
 
 interface Member {
   username: string;
@@ -111,27 +112,12 @@ const PageTSXMemberBar = () => {
               {members
                 .filter((m: any) => m.level === "Başrol")
                 .map((member: any, key: any) => (
-                  <div key={key} className="mb-2">
-                    <Avatar
-                      onClick={() => setMemberBarSelectedUser(member.username)}
-                      className="w-14 h-14 rounded-md shadow-md border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
-                    >
-                      <AvatarImage
-                        src={member.photo}
-                        width={25}
-                        height={25}
-                        className="w-full h-full"
-                        alt={member.username}
-                      />
-                      <AvatarFallback>
-                        <Image
-                          width={20}
-                          height={20}
-                          alt="loading..."
-                          src="/loadingAvatar.gif"
-                        />
-                      </AvatarFallback>
-                    </Avatar>
+                  <div key={key} className="mb-2 ">
+                    <MemberAvatar
+                      photo={member.photo}
+                      frame={member.frame}
+                      className={"shadow-md shadow-yellow-500"}
+                    />
                     <h5 className="text-[11px] mt-1">{member.username}</h5>
                   </div>
                 ))}
@@ -149,26 +135,11 @@ const PageTSXMemberBar = () => {
                     key={key}
                     className="mb-2 justify-center flex flex-col items-center"
                   >
-                    <Avatar
-                      onClick={() => setMemberBarSelectedUser(member.username)}
-                      className="w-14 h-14 rounded-md shadow-sm border-1 border-blue-400 shadow-blue-400 cursor-pointer"
-                    >
-                      <AvatarImage
-                        src={member.photo}
-                        width={25}
-                        height={25}
-                        className="w-full h-full"
-                        alt={member.username}
-                      />
-                      <AvatarFallback>
-                        <Image
-                          width={20}
-                          height={20}
-                          alt="loading..."
-                          src="/loadingAvatar.gif"
-                        />
-                      </AvatarFallback>
-                    </Avatar>
+                    <MemberAvatar
+                      photo={member.photo}
+                      frame={member.frame}
+                      className={"shadow-sm shadow-blue-400"}
+                    />
                     <h5 className="text-[11px] mt-1">{member.username}</h5>
                   </div>
                 ))}
@@ -183,26 +154,7 @@ const PageTSXMemberBar = () => {
                 .filter((m: any) => m.level === "Seyirci")
                 .map((member: any, key: any) => (
                   <div key={key} className="mb-2">
-                    <Avatar
-                      onClick={() => setMemberBarSelectedUser(member.username)}
-                      className="w-14 h-14 rounded-md  border-1 border-white/70  cursor-pointer"
-                    >
-                      <AvatarImage
-                        src={member.photo}
-                        width={25}
-                        height={25}
-                        className="w-full h-full"
-                        alt={member.username}
-                      />
-                      <AvatarFallback>
-                        <Image
-                          width={20}
-                          height={20}
-                          alt="loading..."
-                          src="/loadingAvatar.gif"
-                        />
-                      </AvatarFallback>
-                    </Avatar>
+                    <MemberAvatar photo={member.photo} frame={member.frame} />
                     <h5 className="text-[11px] mt-1">{member.username}</h5>
                   </div>
                 ))}
