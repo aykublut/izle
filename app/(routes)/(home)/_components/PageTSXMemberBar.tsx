@@ -138,14 +138,17 @@ const PageTSXMemberBar = () => {
             </div>
 
             {/* DESTEKÇİ */}
-            <div className="flex flex-col items-center mb-3">
+            <div className="flex flex-col items-center  mb-3">
               <h3 className="text-blue-400 font-light text-md flex m-0 p-0 flex-col mb-2 border-b border-blue-400 shadow-blue-400 shadow-[0_0.5px_0_rgba(255,255,255,0.2)]">
                 Destekçi
               </h3>
               {members
                 .filter((m: any) => m.level === "Destekçi")
                 .map((member: any, key: any) => (
-                  <div key={key} className="mb-2">
+                  <div
+                    key={key}
+                    className="mb-2 justify-center flex flex-col items-center"
+                  >
                     <Avatar
                       onClick={() => setMemberBarSelectedUser(member.username)}
                       className="w-14 h-14 rounded-md shadow-sm border-1 border-yellow-500 shadow-yellow-500 cursor-pointer"
