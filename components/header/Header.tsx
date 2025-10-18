@@ -151,7 +151,7 @@ const Header = () => {
                 localStorage.clear();
               }} // çıkış yaptıktan sonra yönlendirme
               variant="outline"
-              className="gap-3 max-sm:mr-10 max-sm:h-7 max-sm:w-17 md:block  cursor-pointer"
+              className="gap-3 max-sm:mr-10 max-sm:h-7 max-sm:w-7  md:block  cursor-pointer"
             >
               <LogOut className="text-red-500" />
               {/* {texts.authButtons.logout} */}
