@@ -20,10 +20,15 @@ const AddComment = () => {
   const { setDialogStation, texts, photoS, frameS, setPhotoAndFrame } =
     useStore();
   const movieName = stored.name;
+  useEffect(() => {
+    // session authenticated veya data geldiğinde yükle
+    session && setPhotoAndFrame(session?.user.photo, session?.user.frame);
+    console.log(photoS);
+  }, [photoS]);
   const [isPending, startTransition] = useTransition();
   const [clickedAvatar, setClickedAvatar] = useState<boolean>(false);
   const [selectedAvatar, setSelectedAvatar] = useState<string>(
-    session?.user.photo ?? "/avatar/emptyAvatar.png"
+    photoS ?? "/avatar/emptyAvatar.png"
   );
 
   const [nickname, setNickName] = useState<string>(
@@ -88,10 +93,11 @@ const AddComment = () => {
   };
   useEffect(() => {
     // session authenticated veya data geldiğinde yükle
+
     const savedPhoto = localStorage.getItem("profile_photo");
     const savedFrame = localStorage.getItem("profile_frame");
     setPhotoAndFrame(savedPhoto, savedFrame);
-  }, []);
+  }, [session]);
   return (
     <div className="flex flex-col gap-5">
       <div className="flex gap-5  w-full h-50">
