@@ -191,6 +191,13 @@ export const movies = [
         color: "yellow",
         admin: false,
       },
+      {
+        avatar: "/avatar/theWoman.png",
+        name: "fatma",
+        comment: "Çok sresli filmdi.",
+        color: "yellow",
+        admin: false,
+      },
     ],
   },
   {
