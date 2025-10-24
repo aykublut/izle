@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import MemberAvatar from "@/components/MemberAvatar";
 import { avatars } from "@/store/images";
-
+import { easeInOut, motion } from "motion/react";
 const AddComment = () => {
   const { data: session, update } = useSession();
   const stored = JSON.parse(localStorage.getItem("currentMovie") || "null");
@@ -99,7 +99,12 @@ const AddComment = () => {
     setPhotoAndFrame(savedPhoto, savedFrame);
   }, [session]);
   return (
-    <div className="flex flex-col gap-5">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: easeInOut }}
+      className="flex flex-col gap-5"
+    >
       <div className="flex gap-5  w-full h-50">
         <div className="relative flex  justify-center items-center max-md:justify-end max-md:gap-5 max-md:pb-[2px] flex-col w-[25%] pt-2   ">
           <div
@@ -256,7 +261,7 @@ const AddComment = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

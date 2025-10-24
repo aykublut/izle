@@ -10,10 +10,10 @@ import useStore from "@/store/store";
 import Image from "next/image";
 import { languageENG, languageTR } from "@/store/lang";
 import { signOut, useSession } from "next-auth/react";
-import SelectAvatar from "@/app/(routes)/aboutMovie/_comment/SelectAvatar";
+
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { getSession } from "next-auth/react";
-import { easeOut, motion } from "motion/react";
+
+import { easeInOut, motion } from "motion/react";
 const Header = () => {
   const { data: session, update } = useSession();
   const [photo, setPhoto] = useState(session?.user.photo);
@@ -41,9 +41,9 @@ const Header = () => {
 
   return (
     <motion.div
-      initial={{ x: -100 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 2, ease: easeOut }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, ease: easeInOut }}
       suppressHydrationWarning
       className="fixed top-0 w-full z-50 backdrop-blur-md left-0 myPadding shadow-xl shadow-black/40 dark:shadow-white/30 justify-center flex"
     >

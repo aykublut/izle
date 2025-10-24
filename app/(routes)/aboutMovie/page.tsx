@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import Comment from "./_comment/Comment";
-
+import { easeIn, easeInOut, easeOut, motion } from "motion/react";
 import EmptyComment from "./_comment/EmptyComment";
 import useStore from "@/store/store";
 const aboutMoviePage = () => {
@@ -35,7 +35,10 @@ const aboutMoviePage = () => {
   } = currentMovie;
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: easeInOut }}
       id={id}
       className="flex myPadding py-15 flex-col md:flex-row items-center pt-30   "
     >
@@ -76,7 +79,7 @@ const aboutMoviePage = () => {
         <source src={song} type="audio/mp3" />
         Tarayıcınız audio etiketini desteklemiyor.
       </audio>
-    </div>
+    </motion.div>
   );
 };
 

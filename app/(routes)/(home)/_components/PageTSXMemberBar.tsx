@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
 import useStore from "@/store/store";
 import { toast } from "sonner";
 import MemberAvatar from "@/components/MemberAvatar";
-
+import { easeIn, easeInOut, easeOut, motion } from "motion/react";
 interface Member {
   username: string;
   photo: string;
@@ -49,7 +48,12 @@ const PageTSXMemberBar = () => {
   if (!memberBarVisible) return null;
 
   return (
-    <div className="">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, ease: easeInOut }}
+      className=""
+    >
       {memberBarVisible && (
         <div className="fixed left-0 top-25 w-40 h-150 rounded-md shadow-sm shadow-white text-center bg-gradient-to-br from-[#0f101a] to-[#1a1a2b]">
           <ScrollArea className="h-full overflow-auto p-2">
@@ -154,7 +158,7 @@ const PageTSXMemberBar = () => {
           </ScrollArea>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

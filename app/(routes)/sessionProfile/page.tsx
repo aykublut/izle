@@ -7,7 +7,7 @@ import SelectAvatar from "../aboutMovie/_comment/SelectAvatar";
 import MemberAvatar from "@/components/MemberAvatar";
 import useStore from "@/store/store";
 import { avatars, memberAvatars, frames } from "@/store/images";
-
+import { easeInOut, motion } from "motion/react";
 export default function ProfilePage() {
   const { data: session, status, update } = useSession();
   const router = useRouter();
@@ -113,15 +113,25 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0f101a] to-[#1a1a2b] px-4 py-25 lg:py-4">
-      <div className="w-full max-w-[1000px] bg-white/5 rounded-2xl shadow-xl backdrop-blur-md text-white p-4 flex flex-col lg:flex-row gap-6">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: easeInOut }}
+        className="w-full max-w-[1000px] bg-white/5 rounded-2xl shadow-xl backdrop-blur-md text-white p-4 flex flex-col lg:flex-row gap-6"
+      >
         {/* LEFT: Preview */}
         <div className="flex flex-col items-center gap-4 lg:w-1/3 w-full">
-          <div className="bg-white/6 p-4 rounded-2xl shadow-inner">
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: easeInOut }}
+            className="bg-white/6 p-4 rounded-2xl shadow-inner"
+          >
             <MemberAvatar
               frame={frameS === "" ? session?.user.frame : frameS}
               photo={photoS === "" ? session?.user.photo : photoS}
             />
-          </div>
+          </motion.div>
           <div className="text-center">
             <div className="text-sm text-blue-200 font-semibold">
               {nickname}
@@ -143,12 +153,15 @@ export default function ProfilePage() {
               Make it yours — changes preview live
             </div>
           </div>
-          <button
+          <motion.button
             onClick={handleUpdate}
             className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 font-semibold shadow-lg hover:scale-[1.01] transition-transform"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeInOut }}
           >
             Save Changes
-          </button>
+          </motion.button>
           {message && (
             <div className="mt-2 text-center text-green-400 text-sm">
               {message}
@@ -234,7 +247,7 @@ export default function ProfilePage() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
