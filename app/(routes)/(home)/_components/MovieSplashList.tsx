@@ -2,11 +2,8 @@
 import React, { useEffect } from "react";
 import MovieSplash from "./MovieSplash";
 import useStore from "@/store/store";
-import { useSession } from "next-auth/react";
 
 const MovieSplashList = ({ moviesCall }: { moviesCall: any }) => {
-  const { data: session, update } = useSession();
-  const { photoS } = useStore();
   const { memberBarSelectedUser } = useStore();
 
   return (
