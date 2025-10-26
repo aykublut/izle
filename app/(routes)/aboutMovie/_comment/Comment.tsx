@@ -10,6 +10,8 @@ const Comment = ({ com }: { com: any }) => {
   //     comment:
   //     color:
   const { avatar, name, comment, color, admin } = com;
+  const { nick } = com;
+
   return (
     <div className="flex w-full">
       <div className="flex justify-center items-center flex-col w-[25%] pt-2   ">
@@ -35,6 +37,7 @@ const Comment = ({ com }: { com: any }) => {
         </Avatar>
         <h4 className="font-light font-mono text-center mt-1 text-md">
           {name}
+          {nick}
         </h4>
       </div>
 
