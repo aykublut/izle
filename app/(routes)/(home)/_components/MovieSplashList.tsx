@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import MovieSplash from "./MovieSplash";
 import useStore from "@/store/store";
 import { easeInOut, motion } from "motion/react";
+
 const MovieSplashList = ({ moviesCall }: { moviesCall: any }) => {
   const { memberBarSelectedUser } = useStore();
 
