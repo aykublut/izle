@@ -22,6 +22,7 @@ model User {
   selectedColor  String
   movieName      String
   movieSuggestion String
+  instantComment Boolean
 }
 model Member {
   id             String @id @default(auto()) @map("_id") @db.ObjectId

@@ -9,6 +9,7 @@ export async function createUser(data: {
   selectedColor: string;
   movieName: string;
   movieSuggestion: string;
+  instantComment: boolean;
 }) {
   try {
     const user = await prisma.user.create({

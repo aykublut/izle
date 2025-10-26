@@ -1,9 +1,11 @@
 import { create } from "zustand";
 import { languageTR } from "./lang";
 interface Store {
-  //MEMBERSFOR
+  //DATA-FOR
   members: any;
   setMembers: (payload: any) => void;
+  users: any;
+  setUsers: (payload: any) => void;
   //
   //user bölümü
   photoS: string;
@@ -29,11 +31,17 @@ interface Store {
 }
 
 const useStore = create<Store>()((set) => ({
-  //MEMBERSFOR
+  //DATA-FOR
   members: "",
   setMembers: (payload: any) => {
     set(() => ({
       members: payload,
+    }));
+  },
+  users: "",
+  setUsers: (payload: any) => {
+    set(() => ({
+      users: payload,
     }));
   },
   //

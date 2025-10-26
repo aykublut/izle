@@ -8,7 +8,50 @@ import Comment from "./_comment/Comment";
 import { easeIn, easeInOut, easeOut, motion } from "motion/react";
 import EmptyComment from "./_comment/EmptyComment";
 import useStore from "@/store/store";
+import { toast } from "sonner";
+import { useSession } from "next-auth/react";
+interface User {
+  avatar: string;
+  nick: string;
+  comment: string;
+  color: string;
+  movieSuggestion: string;
+  movieName: string;
+}
 const aboutMoviePage = () => {
+  const { users, setUsers } = useStore();
+  const { data: session, update } = useSession();
+  const [loading, setLoading] = useState(true);
+  const [refleshPage, setRefleshPage] = useState(false);
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchMembers = async () => {
+      try {
+        const res = await fetch("/api/users", { cache: "no-store" });
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(`HTTP ${res.status}: ${text}`);
+        }
+        const data: User[] = await res.json();
+        if (isMounted) setUsers(data);
+      } catch (err) {
+        console.error("fetchMembers error:", err);
+        toast.error("Üyeler yüklenirken bir hata oluştu.");
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    fetchMembers();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+  useEffect(() => {
+    return;
+  }, [refleshPage]);
+
   const { texts } = useStore();
   const [currentMovie, setCurrentMovie] = useState<any>();
   useEffect(() => {
@@ -69,6 +112,17 @@ const aboutMoviePage = () => {
                       <Separator className="my-2" />
                     </div>
                   ))}
+                {users &&
+                  users.map((user: any, key: any) =>
+                    user.movieName === name && user.instantComment === true ? (
+                      <div key={key} className="mt-2">
+                        <Comment com={user} />
+                        <Separator className="my-2" />
+                        <div>{user.instantComment}</div>
+                      </div>
+                    ) : null
+                  )}
+
                 <EmptyComment />
               </React.Fragment>
             </div>
